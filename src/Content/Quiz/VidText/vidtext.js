@@ -1,21 +1,13 @@
 import React from "react";
-import Yes from "./yes";
-import No from "./no";
-import { TwitterExample } from "./embedLinks";
-import styled from "styled-components";
-import StyledTitle from "../../../components/title";
+import { TwitterExample, TwitterGoodExample, DesText } from "./embedLinks";
+import Button from "../../../components/Button";
+import { Section, StyledTitle, ButtonPanel } from "../styling";
+import Continue from "../../../components/Continue";
 
-const Section = styled.section`
-  margin-top: 2rem;
-  margin-left: 6rem;
-  > * {
-    margin-top: 2rem;
-  }
-`;
 export const VidText = ({ index, setIndex, platform, post }) => {
   const [answer, setAnswer] = React.useState("");
   return (
-    <>
+    <Section>
       <StyledTitle>Descriptive</StyledTitle>
       {answer === "" ? (
         <VidTextQ platform={platform} answer={answer} setAnswer={setAnswer} />
@@ -38,13 +30,13 @@ export const VidText = ({ index, setIndex, platform, post }) => {
           No
         </No>
       )}
-    </>
+    </Section>
   );
 };
 
 export const VidTextQ = ({ setAnswer }) => {
   return (
-    <Section>
+    <>
       <h1>Do you have descriptive text accompanying the video?</h1>
       <p>
         Another option for making the visual elements of your video more
@@ -59,10 +51,84 @@ export const VidTextQ = ({ setAnswer }) => {
         Now that you know more about descriptive text and its benefits, does
         your video have descriptive text?
       </p>
+      <ButtonPanel>
+        <Button fontSize="1" onClick={() => setAnswer("yes")}>
+          Yes
+        </Button>
+        <Button fontSize="1" onClick={() => setAnswer("no")}>
+          No
+        </Button>
+      </ButtonPanel>
+    </>
+  );
+};
 
-      <button onClick={() => setAnswer("yes")}>Yes</button>
-      <button onClick={() => setAnswer("no")}>No</button>
-    </Section>
+const No = ({ index, setIndex, setAnswer, platform, post }) => {
+  return (
+    <>
+      <h1>No worries!</h1>
+      <p>
+        Below is a good example of what descriptive text of a video on{" "}
+        {platform} can look like! The screenreader or the text-to-speech program
+        will read the thread, so keep that in mind when writing!
+      </p>
+      <p>
+        Here is the original {post} with the trailer (bonus: it has open
+        captions!):
+      </p>
+      <TwitterGoodExample />
+      <p>
+        The accompanying thread is the descriptive text that describes the key
+        details and parts of the trailer. You only need to describe the most
+        important details. Since this will be read aloud, being too lengthy or
+        wordy is not helpful.
+      </p>
+      <DesText />
+      <p>
+        A good way to test if the description is good or not is to get someone
+        to read it aloud, close your eyes, and see if the text still is able to
+        convey the most crucial scenes of the video well.
+      </p>
+      <p>
+        In addition, avoid any emojis or emoticons in your descriptive text. It
+        doesn’t translate well through screen readers or text-to-speech
+        programs.
+      </p>
+      <p>
+        If you want to learn more about written descriptive text or other
+        similar accommodations (like audio descriptions), this article gives a
+        good overview of the various video descriptions available.
+      </p>
+      <Continue index={index} setIndex={setIndex} setAnswer={setAnswer} />
+    </>
+  );
+};
+const Yes = ({ index, setIndex, setAnswer, platform, post }) => {
+  return (
+    <>
+      <h1>Love to see it!</h1>
+      <p>
+        Below is a good example of what descriptive text of a video on{" "}
+        {platform} can look like! If your descriptive text looks similar to the
+        example below, you’re set!
+      </p>
+      <p>
+        Here is the original {post} with the trailer (bonus: it has open
+        captions!):
+      </p>
+      <TwitterGoodExample />
+      <p>
+        And this is the accompanying thread of {post}s that describes what’s
+        happening in the trailer:
+      </p>
+      <DesText />
+      <p>
+        If you want to learn more about written descriptive text or other
+        similar accommodations (like audio descriptions), this article gives a
+        good overview of the various video descriptions available.
+      </p>
+      <Continue index={index} setIndex={setIndex} setAnswer={setAnswer} />
+    </>
   );
 };
 

@@ -17,6 +17,7 @@ const Button = styled.button(
   font-family: ${theme.fonts.body};
   font-size: ${theme.fontSizes[fontSize]} ;
   cursor: pointer;
+  min-width: 8rem;
 
   @media (max-width: 768px){
     font-size:  ${theme.fontSizes[1]};

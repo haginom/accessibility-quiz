@@ -6,7 +6,7 @@ import Twitter from "../../images/intro/twitter.png";
 import Insta from "../../images/intro/insta.png";
 import TikTok from "../../images/intro/tiktok.png";
 import YouTube from "../../images/intro/youtube.png";
-import { Layout, Text, Heading, Container } from "../../theme/extra";
+import { Layout, Text, Heading, ContainerFive } from "../../theme/extra";
 
 const Platform = ({ index, setIndex, setPlatform }) => {
   return (
@@ -16,7 +16,7 @@ const Platform = ({ index, setIndex, setPlatform }) => {
         If the social media platform is not listed on here, please choose the
         option that is the most similar.
       </Text>
-      <Container>
+      <ContainerFive>
         <SocialButton
           image={Twitter}
           value="twitter"
@@ -62,7 +62,7 @@ const Platform = ({ index, setIndex, setPlatform }) => {
         >
           TikTok
         </SocialButton>
-      </Container>
+      </ContainerFive>
       <Layout>
         <Button fontSize="1" onClick={() => setIndex(index - 1)}>
           Go Back <span>&#8592;</span>

@@ -1,4 +1,31 @@
-export const TwitterExample = ()=> (
-<blockquote class="twitter-tweet" data-lang="en" data-theme="dark"><p lang="en" dir="ltr">DESCRIPTIVE TEXT: Open on Logain in his cage as the Prime Video logo appears in front of him. The entire video is captioned with the words being spoken. Cut to a closeup of Logain’s face just before his cage explodes with his channeling, knocking Aes Sedai to the ground.</p>&mdash; The Wheel Of Time (@TheWheelOfTime) <a href="https://twitter.com/TheWheelOfTime/status/1475858818533707779?ref_src=twsrc%5Etfw">December 28, 2021</a></blockquote> 
-)
+import WheelOfTime from "../../../images/twitter/vidText-1.png";
+import WheelOfTime2 from "../../../images/twitter/vidText-2.png";
+import DescriptiveText from "../../../images/twitter/vidText-3.png";
 
+import styled from "styled-components";
+
+const StyledImage = styled.div`
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  > * {
+    max-width: 300px;
+  }
+`;
+export const TwitterExample = () => (
+  <StyledImage>
+    <img src={WheelOfTime} alt="twitter example of descriptive text" />
+  </StyledImage>
+);
+
+export const TwitterGoodExample = () => (
+  <StyledImage>
+    <img src={WheelOfTime2} alt="twitter example of descriptive text" />
+  </StyledImage>
+);
+
+export const DesText = () => (
+  <StyledImage>
+    <img src={DescriptiveText} alt="twitter example of descriptive text" />
+  </StyledImage>
+);

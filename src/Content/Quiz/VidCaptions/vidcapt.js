@@ -8,8 +8,9 @@ import {
   FacebookInstructions,
 } from "./embedLinks";
 import Button from "../../../components/Button";
-import { Layout, Columns } from "../../../theme/extra";
-import StyledTitle from "../../../components/title";
+import { Columns } from "../../../theme/extra";
+import { Section, StyledTitle, ButtonPanel } from "../styling";
+import Continue from "../../../components/Continue";
 import styled from "styled-components";
 
 const Flex = styled.div`
@@ -21,18 +22,10 @@ const Flex = styled.div`
   }
 `;
 
-const Section = styled.section`
-  margin-top: 2rem;
-  margin-left: 6rem;
-  > * {
-    margin-top: 2rem;
-  }
-`;
-
 export const VidCapt = ({ index, setIndex, platform, post }) => {
   const [answer, setAnswer] = React.useState("");
   return (
-    <>
+    <Section>
       <StyledTitle>Captions</StyledTitle>
       {answer === "" ? (
         <VidCaptQ platform={platform} answer={answer} setAnswer={setAnswer} />
@@ -55,59 +48,57 @@ export const VidCapt = ({ index, setIndex, platform, post }) => {
           No
         </No>
       )}
-    </>
+    </Section>
   );
 };
 
 const VidCaptQ = ({ setAnswer, answer, platform }) => {
   return (
     <>
-      <Section>
-        <h1>Does your video have captions (either closed or open)?</h1>
-        <p>
-          Closed captions are captions that can be toggled on or off. Open
-          captions are permanently embedded on the video and cannot be toggled
-          on and off. Captions are important for accessibility. It helps those
-          with hearing disabilities, those with learning disabilities, and those
-          who just don’t have their headphones with them.
-        </p>
-        {platform === "twitter" ? (
-          <Flex>
-            <TwitterOpenCaptions />
-            <TwitterClosedCaptions />
-          </Flex>
-        ) : platform === "facebook" ? (
-          <Flex>
-            <FacebookOpenCaptions />
-            <FacebookClosedCaptions />
-          </Flex>
-        ) : null}
-        <p>
-          According to a 2019 study from Verizon Media and Publicis Media, 69%
-          of people watch videos without sound in public place. Even in private
-          places, one in every four watch videos without sound. So, if your
-          content doesn’t have captions, they’ll probably scroll on by.
-        </p>
-        <p>
-          Now that you know more about captions and its benefits, does your
-          video have either closed or open captions?
-        </p>
-      </Section>
-      <Layout>
+      <h1>Does your video have captions (either closed or open)?</h1>
+      <p>
+        Closed captions are captions that can be toggled on or off. Open
+        captions are permanently embedded on the video and cannot be toggled on
+        and off. Captions are important for accessibility. It helps those with
+        hearing disabilities, those with learning disabilities, and those who
+        just don’t have their headphones with them.
+      </p>
+      {platform === "twitter" ? (
+        <Flex>
+          <TwitterOpenCaptions />
+          <TwitterClosedCaptions />
+        </Flex>
+      ) : platform === "facebook" ? (
+        <Flex>
+          <FacebookOpenCaptions />
+          <FacebookClosedCaptions />
+        </Flex>
+      ) : null}
+      <p>
+        According to a 2019 study from Verizon Media and Publicis Media, 69% of
+        people watch videos without sound in public place. Even in private
+        places, one in every four watch videos without sound. So, if your
+        content doesn’t have captions, they’ll probably scroll on by.
+      </p>
+      <p>
+        Now that you know more about captions and its benefits, does your video
+        have either closed or open captions?
+      </p>
+      <ButtonPanel>
         <Button fontSize="1" onClick={() => setAnswer("yes")}>
           Yes
         </Button>
         <Button fontSize="1" onClick={() => setAnswer("no")}>
           No
         </Button>
-      </Layout>
+      </ButtonPanel>
     </>
   );
 };
 
 const Yes = ({ index, setIndex, setAnswer, platform }) => {
   return (
-    <Section>
+    <>
       <h1>Fantastic</h1>
       <p>
         Below are some good examples of captioned videos on {platform}. If your
@@ -145,21 +136,14 @@ const Yes = ({ index, setIndex, setAnswer, platform }) => {
           ) : null}
         </div>
       </Columns>
-      <Layout>
-        <Button fontSize="1" onClick={() => setIndex(index + 1)}>
-          Continue
-        </Button>
-        <Button fontSize="1" onClick={() => setAnswer("")}>
-          Go Back <span>&#8592;</span>
-        </Button>
-      </Layout>
-    </Section>
+      <Continue index={index} setIndex={setIndex} setAnswer={setAnswer} />
+    </>
   );
 };
 
 const No = ({ index, setIndex, setAnswer, platform }) => {
   return (
-    <Section>
+    <>
       <h1>Let's add those captions</h1>
       <p>
         Unless you're posting a video with absolutely zero sound, you should
@@ -228,15 +212,8 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
         To learn more about how to write great captions, visit this article
         written by an actual Deaf person who uses captions.
       </p>
-      <Layout>
-        <Button fontSize="1" onClick={() => setIndex(index + 1)}>
-          Continue
-        </Button>
-        <Button fontSize="1" onClick={() => setAnswer("")}>
-          Go Back <span>&#8592;</span>
-        </Button>
-      </Layout>
-    </Section>
+      <Continue index={index} setIndex={setIndex} setAnswer={setAnswer} />
+    </>
   );
 };
 

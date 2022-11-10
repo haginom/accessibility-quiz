@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Layout, Container } from "../../theme/extra";
+import { Text, Layout, ContainerThree } from "../../theme/extra";
 import ContentButton from "../../components/Content";
 import Button from "../../components/Button";
 import IconPhoto from "../../images/intro/icon-photo.png";
@@ -21,7 +21,7 @@ const Content = ({
         If it’s mixed media or you will be posting more than one type, please
         just choose one for now.
       </Text>
-      <Container platform={platform}>
+      <ContainerThree platform={platform}>
         <ContentButton
           setIndex={setIndex}
           setSection={setSection}
@@ -62,31 +62,7 @@ const Content = ({
         ) : (
           ""
         )}
-        {platform == null ? (
-          <>
-            <ContentButton
-              setIndex={setIndex}
-              setSection={setSection}
-              setPost={setPost}
-              setContent={setContent}
-              value="text"
-            >
-              Different Platform
-            </ContentButton>
-            <ContentButton
-              setIndex={setIndex}
-              setSection={setSection}
-              setPost={setPost}
-              setContent={setContent}
-              value="text"
-            >
-              None
-            </ContentButton>
-          </>
-        ) : (
-          ""
-        )}
-      </Container>
+      </ContainerThree>
       <Layout>
         <Button fontSize="1" onClick={() => setIndex(index - 1)}>
           Go Back <span>&#8592;</span>

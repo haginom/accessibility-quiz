@@ -1,45 +1,98 @@
 import React from "react";
+import { Text, Layout, ContainerFive } from "../../theme/extra";
+import ContentButton from "../../components/Content";
+import Button from "../../components/Button";
+import IconPhoto from "../../images/intro/icon-photo.png";
+import IconVideo from "../../images/intro/icon-video.png";
+import IconText from "../../images/intro/icon-text.png";
 
-const ContentTwo = ({index, setIndex, platform, setContent, setPlatform, setSection}) => {
-  const handleClick = (e) => { 
-    e.preventDefault();
-    setContent(e.target.value)
-    setIndex(0)
-  }
-  const handlePlatformChange = (e) => {
-    e.preventDefault();
-    setPlatform("")
-    setSection("intro")
-    setIndex(3)
-  }
-return (
-  <>
-    <h1>What other type of content are you creating?</h1>
-    <p>If it’s mixed media or you will be posting more than one type, please just choose one for now.</p>
-    <button value="video" onClick={handleClick}>
-      Video
-    </button>
-    { platform !== "TikTok" && platform !== "YouTube" ? 
-    <button value="photo" onClick={handleClick}>
-    Photo </button> : ""
-    }
-    { platform !== "TikTok" && platform !== "YouTube" && platform !== "Instagram" ? 
-      <button value="text" onClick={handleClick}>
-        Text
-      </button>: ""
-    }
-    <button value="text" onClick={handlePlatformChange}>
-      Different Platform
-    </button>
-    <button value="text" onClick={() => setIndex(index+1)}>
-      None
-    </button>
+const ContentTwo = ({
+  index,
+  setIndex,
+  platform,
+  setContent,
+  setPlatform,
+  setSection,
+  setPost,
+}) => {
+  return (
+    <>
+      <h1>What other type of content are you creating?</h1>
+      <Text>
+        If it’s mixed media or you will be posting more than one type, please
+        just choose one for now.
+      </Text>
+      <Text>Content Two</Text>
+      <ContainerFive platform={platform}>
+        <ContentButton
+          setIndex={setIndex}
+          setSection={setSection}
+          setPost={setPost}
+          setContent={setContent}
+          image={IconVideo}
+          value="video"
+        >
+          Video
+        </ContentButton>
+        {platform !== "TikTok" && platform !== "YouTube" ? (
+          <ContentButton
+            setIndex={setIndex}
+            setSection={setSection}
+            setPost={setPost}
+            setContent={setContent}
+            image={IconPhoto}
+            value="photo"
+          >
+            Photo{" "}
+          </ContentButton>
+        ) : (
+          ""
+        )}
+        {platform !== "TikTok" &&
+        platform !== "YouTube" &&
+        platform !== "Instagram" ? (
+          <ContentButton
+            setIndex={setIndex}
+            setSection={setSection}
+            setPost={setPost}
+            setContent={setContent}
+            image={IconText}
+            value="text"
+          >
+            Text
+          </ContentButton>
+        ) : (
+          ""
+        )}
+        <ContentButton
+          setIndex={setIndex}
+          setSection={setSection}
+          setPost={setPost}
+          setPlatform={setPlatform}
+          setContent={setContent}
+          value="changePlatform"
+        >
+          Different Platform
+        </ContentButton>
+        <ContentButton
+          index={index}
+          setIndex={setIndex}
+          setSection={setSection}
+          setPlatform={setPlatform}
+          setPost={setPost}
+          setContent={setContent}
+          value="goodbye"
+        >
+          None
+        </ContentButton>
+      </ContainerFive>
+      <Layout>
+        <Button onClick={() => setIndex(index - 1)}>
+          Go Back <span>&#8592;</span>
+        </Button>
+      </Layout>
+    </>
+  );
+};
 
-    <button onClick={() => setIndex(index - 1)}>
-        Go Back <span>&#8592;</span>
-    </button>
-  </>
-)
-}
-
-export default ContentTwo
+export default ContentTwo;

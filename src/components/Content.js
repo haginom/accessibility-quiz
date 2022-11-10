@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
-const ContentButton = ({ 
+const ContentButton = ({
+  index,
   setIndex,
   value,
-  setContent, 
+  setPlatform,
+  setContent,
   setSection,
   setPost,
   children,
-  image }) => {
+  image,
+}) => {
   const renderSwitch = (param) => {
     switch (param) {
       case "Twitter":
@@ -19,13 +22,28 @@ const ContentButton = ({
     }
   };
 
+  const handlePlatformChange = (e) => {
+    console.log("hello");
+    e.preventDefault();
+    setPlatform("");
+    setSection("intro");
+    setIndex(3);
+  };
+
   const handleClick = (e) => {
     e.preventDefault();
-    setContent(e.target.value);
-    setPost(renderSwitch(e.target.value));
-    setSection("quiz");
-    setIndex(0);
+    if (e.target.value === "changePlatform") {
+      handlePlatformChange(e);
+    } else if (e.target.value === "goodbye") {
+      setIndex(index + 1);
+    } else {
+      setContent(e.target.value);
+      setPost(renderSwitch(e.target.value));
+      setSection("quiz");
+      setIndex(0);
+    }
   };
+
   return (
     <StyledButton
       className="pulse-grow-on-hover"

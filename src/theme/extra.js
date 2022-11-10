@@ -37,26 +37,19 @@ export const Columns = styled.div(
   `
 );
 
-export const Layout = styled.div(
-  ({ theme }) => `
-    display: flex;
-    align-items: center;
-    justify-content: center;
+export const ContainerThree = styled.div(
+  ({ theme, platform }) => `
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-auto-rows: 1fr;
     margin-top: 2rem;
-    > * {
-      margin-left: 1rem;
-      margin-right: 1rem;
-    }
+    max-width: 900px;
   `
 );
 
-export const Container = styled.div(
+export const ContainerFive = styled.div(
   ({ theme, platform }) => `
-   ${
-     platform == null
-       ? "grid-template-columns: repeat(5, 1fr)"
-       : "grid-template-columns: repeat(3, 1fr)"
-   }
+    grid-template-columns: repeat(5, 1fr);
     display: grid;
     grid-auto-rows: 1fr;
     margin-top: 2rem;
@@ -69,4 +62,17 @@ export const Text = styled.p(
   margin-top: ${theme.space[3]};
   text-align: center;
 `
+);
+
+export const Layout = styled.div(
+  ({ theme }) => `
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    > * {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  `
 );
