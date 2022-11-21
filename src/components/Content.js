@@ -13,17 +13,16 @@ const ContentButton = ({
 }) => {
   const renderSwitch = (param) => {
     switch (param) {
-      case "Twitter":
-        return "Tweet";
-      case "Facebook":
-        return "Facebook post";
+      case "twitter":
+        return "tweet";
+      case "facebook":
+        return "facebook post";
       default:
         return param;
     }
   };
 
   const handlePlatformChange = (e) => {
-    console.log("hello");
     e.preventDefault();
     setPlatform("");
     setSection("intro");

@@ -2,7 +2,13 @@ import React from "react";
 import { Section, StyledTitle, ButtonPanel } from "../styling";
 import Continue from "../../../components/Continue";
 import Button from "../../../components/Button";
-import { TwitterBadExample, TwitterGoodExample } from "./links";
+import {
+  TikTokBadExample,
+  TikTokGoodExample,
+  TikTokInstructions,
+  TwitterBadExample,
+  TwitterGoodExample,
+} from "./links";
 
 export const Hashtag = ({ index, setIndex, platform, post }) => {
   const [answer, setAnswer] = React.useState("");
@@ -13,6 +19,7 @@ export const Hashtag = ({ index, setIndex, platform, post }) => {
         <HashtagQ setAnswer={setAnswer} platform={platform} />
       ) : answer === "yes" ? (
         <Yes
+          platform={platform}
           post={post}
           index={index}
           setIndex={setIndex}
@@ -21,7 +28,13 @@ export const Hashtag = ({ index, setIndex, platform, post }) => {
           Yes
         </Yes>
       ) : (
-        <No post={post} index={index} setIndex={setIndex} setAnswer={setAnswer}>
+        <No
+          platform={platform}
+          post={post}
+          index={index}
+          setIndex={setIndex}
+          setAnswer={setAnswer}
+        >
           No
         </No>
       )}
@@ -56,22 +69,39 @@ const HashtagQ = ({ setAnswer, platform }) => {
   );
 };
 
-const Yes = ({ index, setIndex, post, setAnswer }) => {
+const Yes = ({ index, setIndex, post, platform, setAnswer }) => {
   return (
     <>
       <h1>Perfect!</h1>
       <p>
-        {" "}
         Just to double check, your hashtags should look something like the
-        following Disney {post} about Disability Pride Month:
+        following
+        {platform === "twitter" ? (
+          <>Disney {post} about Disability Pride Month:</>
+        ) : platform === "tiktok" ? (
+          <>Tiktok from Netflix promoting a show:</>
+        ) : null}
       </p>
-      <TwitterGoodExample />
-      <Continue index={index} setIndex={setIndex} setAnswer={setAnswer} />
+      {platform === "twitter" ? (
+        <>
+          <TwitterGoodExample />
+        </>
+      ) : platform === "tiktok" ? (
+        <>
+          <TikTokGoodExample />
+        </>
+      ) : null}
+      <Continue
+        pages={1}
+        index={index}
+        setIndex={setIndex}
+        setAnswer={setAnswer}
+      />
     </>
   );
 };
 
-const No = ({ index, setIndex, post, setAnswer }) => {
+const No = ({ index, setIndex, post, platform, setAnswer }) => {
   return (
     <>
       <h1>Let’s fix it!</h1>
@@ -80,30 +110,63 @@ const No = ({ index, setIndex, post, setAnswer }) => {
         your {post}’s accessibility to users.
       </p>
       <p>
-        What we’re trying to avoid are bad hashtags caused by misreading where
-        one word stops and begins. Like the infamous Susan Boyle’s album party
-        hashtag as seen in George Takei’s {post}.
+        What we're trying to avoid is leaving people confused when they read the
+        hashtag.{" "}
       </p>
-      <TwitterBadExample />
+
+      {platform === "tiktok" ? (
+        <>
+          <TikTokInstructions />
+          <TikTokBadExample />
+        </>
+      ) : platform === "twitter" ? (
+        <>
+          <TwitterBadExample />
+        </>
+      ) : null}
       <p>
-        And instead, we're looking for hashtags (especially longer ones like the
-        Disney {post} shown belown) that are easier to read. By capitalizing the
-        first word in each word in the hashtag, we make it clear what the
-        hashtag says.
+        And instead, we're looking for hashtags (especially longer ones like{" "}
+        {platform === "tiktok" ? (
+          <>this really long Netflix show title)</>
+        ) : platform === "twitter" ? (
+          <>the Disney {post} shown belown)</>
+        ) : null}{" "}
+        that are easier to read. By capitalizing the first word in each word in
+        the hashtag, we make it clear what the hashtag says.
       </p>
-      <TwitterGoodExample />
+      {platform === "tiktok" ? (
+        <>
+          <TikTokGoodExample />
+        </>
+      ) : platform === "twitter" ? (
+        <>
+          <TwitterGoodExample />
+        </>
+      ) : null}
+      <p>You can even test it for yourself - compare how you read</p>
+      <p>#TheMostHatedManOnTheInternet</p>
+      <p>vs. how you read</p>
+      <p>#themosthantedmanontheinternet. </p>
       <p>
-        You can even test it for yourself - compare how you read
-        #ReimagineTomorrowTogether versus how you read
-        #reimaginetomorrowtogether. Camel case makes it easier, right? So, be
-        sure that your hashtags are accessible!
+        Camel case makes it easier, right? So, be sure that your hashtags are
+        accessible!
       </p>
-      <p>
-        (Note: the Disney example {post} is a good example of having good
-        hashtags, but the attached photos do not have alt text, so please keep
-        that in mind.)
-      </p>
-      <Continue index={index} setIndex={setIndex} setAnswer={setAnswer} />
+      {platform === "twitter" ? (
+        <>
+          <p>
+            (Note: the Disney example {post} is a good example of having good
+            hashtags, but the attached photos do not have alt text, so please
+            keep that in mind.)
+          </p>
+        </>
+      ) : null}
+
+      <Continue
+        pages={1}
+        index={index}
+        setIndex={setIndex}
+        setAnswer={setAnswer}
+      />
     </>
   );
 };

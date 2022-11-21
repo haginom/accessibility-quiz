@@ -14,6 +14,7 @@ const Content = ({
   setSection,
   setPost,
 }) => {
+  console.log(platform);
   return (
     <>
       <h1>What type of content are you creating?</h1>
@@ -32,7 +33,7 @@ const Content = ({
         >
           Video
         </ContentButton>
-        {platform !== "TikTok" && platform !== "YouTube" ? (
+        {platform !== "tiktok" && platform !== "youtube" ? (
           <ContentButton
             setIndex={setIndex}
             setSection={setSection}
@@ -46,9 +47,9 @@ const Content = ({
         ) : (
           ""
         )}
-        {platform !== "TikTok" &&
-        platform !== "YouTube" &&
-        platform !== "Instagram" ? (
+        {platform !== "tiktok" &&
+        platform !== "youtube" &&
+        platform !== "instagram" ? (
           <ContentButton
             setIndex={setIndex}
             setSection={setSection}

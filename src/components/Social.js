@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
-const SocialButton = ({ setPlatform, index, setIndex, value, image, children }) => {
+const SocialButton = ({
+  setPlatform,
+  index,
+  setIndex,
+  value,
+  image,
+  children,
+}) => {
   const handleClick = (e) => {
     e.preventDefault();
+    setPlatform("");
     setPlatform(e.target.value);
     setIndex(index + 1);
   };

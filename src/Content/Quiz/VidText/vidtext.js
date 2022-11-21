@@ -99,7 +99,12 @@ const No = ({ index, setIndex, setAnswer, platform, post }) => {
         similar accommodations (like audio descriptions), this article gives a
         good overview of the various video descriptions available.
       </p>
-      <Continue index={index} setIndex={setIndex} setAnswer={setAnswer} />
+      <Continue
+        pages={1}
+        index={index}
+        setIndex={setIndex}
+        setAnswer={setAnswer}
+      />
     </>
   );
 };
@@ -127,7 +132,12 @@ const Yes = ({ index, setIndex, setAnswer, platform, post }) => {
         similar accommodations (like audio descriptions), this article gives a
         good overview of the various video descriptions available.
       </p>
-      <Continue index={index} setIndex={setIndex} setAnswer={setAnswer} />
+      <Continue
+        pages={1}
+        index={index}
+        setIndex={setIndex}
+        setAnswer={setAnswer}
+      />
     </>
   );
 };

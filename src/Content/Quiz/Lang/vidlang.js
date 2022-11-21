@@ -30,7 +30,12 @@ export const VidLang = ({ index, setIndex, platform }) => {
           No
         </No>
       ) : answer === "unsure" ? (
-        <Unsure index={index} setIndex={setIndex} setAnswer={setAnswer} />
+        <Unsure
+          platform={platform}
+          index={index}
+          setIndex={setIndex}
+          setAnswer={setAnswer}
+        />
       ) : (
         "null"
       )}
@@ -70,7 +75,7 @@ const VidLangQ = ({ setAnswer }) => {
   );
 };
 
-const Yes = ({ index, setIndex, setAnswer }) => {
+const Yes = ({ index, setIndex, setAnswer, platform }) => {
   return (
     <>
       <h1>Awesome</h1>
@@ -113,12 +118,26 @@ const Yes = ({ index, setIndex, setAnswer }) => {
         If you’re looking for a more comprehensive list, check out this list of
         ableist language that a disabled person compiled and organized.
       </p>
-      <Continue index={index} setIndex={setIndex} setAnswer={setAnswer} />
+      {platform === "youtube" ? (
+        <Continue
+          index={index}
+          setIndex={setIndex}
+          setAnswer={setAnswer}
+          pages={2}
+        />
+      ) : (
+        <Continue
+          index={index}
+          setIndex={setIndex}
+          setAnswer={setAnswer}
+          pages={1}
+        />
+      )}
     </>
   );
 };
 
-const No = ({ index, setIndex, setAnswer }) => {
+const No = ({ index, setIndex, setAnswer, platform }) => {
   return (
     <>
       <h1>Sounds good!</h1>
@@ -130,12 +149,26 @@ const No = ({ index, setIndex, setAnswer }) => {
         It’s a compiled list of ableist language that one should keep in mind
         that was put together by a disabled person, Lydia X. Z. Brown.
       </p>
-      <Continue index={index} setIndex={setIndex} setAnswer={setAnswer} />
+      {platform === "youtube" ? (
+        <Continue
+          index={index}
+          setIndex={setIndex}
+          setAnswer={setAnswer}
+          pages={2}
+        />
+      ) : (
+        <Continue
+          index={index}
+          setIndex={setIndex}
+          setAnswer={setAnswer}
+          pages={1}
+        />
+      )}
     </>
   );
 };
 
-const Unsure = ({ index, setIndex, setAnswer }) => {
+const Unsure = ({ index, setIndex, setAnswer, platform }) => {
   return (
     <>
       <h1>That’s okay! Let’s learn more!</h1>
@@ -153,7 +186,21 @@ const Unsure = ({ index, setIndex, setAnswer }) => {
         <li>Avoid infantilizing language</li>
         <li>When you can, ask the community</li>
       </ol>
-      <Continue index={index} setIndex={setIndex} setAnswer={setAnswer} />
+      {platform === "youtube" ? (
+        <Continue
+          index={index}
+          setIndex={setIndex}
+          setAnswer={setAnswer}
+          pages={2}
+        />
+      ) : (
+        <Continue
+          index={index}
+          setIndex={setIndex}
+          setAnswer={setAnswer}
+          pages={1}
+        />
+      )}
     </>
   );
 };

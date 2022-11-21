@@ -22,7 +22,6 @@ const ContentTwo = ({
         If it’s mixed media or you will be posting more than one type, please
         just choose one for now.
       </Text>
-      <Text>Content Two</Text>
       <ContainerFive platform={platform}>
         <ContentButton
           setIndex={setIndex}
@@ -34,7 +33,7 @@ const ContentTwo = ({
         >
           Video
         </ContentButton>
-        {platform !== "TikTok" && platform !== "YouTube" ? (
+        {platform !== "tiktok" && platform !== "youtube" ? (
           <ContentButton
             setIndex={setIndex}
             setSection={setSection}
@@ -48,9 +47,9 @@ const ContentTwo = ({
         ) : (
           ""
         )}
-        {platform !== "TikTok" &&
-        platform !== "YouTube" &&
-        platform !== "Instagram" ? (
+        {platform !== "tiktok" &&
+        platform !== "youtube" &&
+        platform !== "instagram" ? (
           <ContentButton
             setIndex={setIndex}
             setSection={setSection}
