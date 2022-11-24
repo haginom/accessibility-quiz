@@ -78,6 +78,10 @@ const StyledButton = styled.button(
   cursor: pointer;
   margin:  ${theme.space[6]} ${theme.space[4]};
   min-width: 12rem;
+
+  @media (max-width: 768px){
+    margin:  ${theme.space[3]} ${theme.space[1]};
+  }
 `
 );
 

@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Heading = styled.h1(
   ({ theme }) => `
     font-size:  ${theme.fontSizes[6]};
+
+    @media (max-width: 768px){
+      font-size: ${theme.fontSizes[3]};
+    }
   `
 );
 
@@ -44,6 +48,13 @@ export const ContainerThree = styled.div(
     grid-auto-rows: 1fr;
     margin-top: 2rem;
     max-width: 900px;
+
+    @media (max-width: 768px){
+      grid-template-columns: repeat(auto-fill, 320px);
+      grid-gap: 0rem;
+      margin-top: 0.5rem;
+      justify-content: center;
+    }
   `
 );
 
@@ -53,13 +64,20 @@ export const ContainerFive = styled.div(
     display: grid;
     grid-auto-rows: 1fr;
     margin-top: 2rem;
+
+    @media (max-width: 768px){
+      grid-template-columns: repeat(auto-fill, 320px);
+      grid-gap: 0rem;
+      margin-top: 0.5rem;
+      justify-content: center;
+    }
   `
 );
 
 export const Text = styled.p(
   ({ theme }) => `
   font-size:  ${theme.fontSizes[1]};
-  margin-top: ${theme.space[3]};
+  margin-top: ${theme.space[4]};
   text-align: center;
 `
 );

@@ -24,6 +24,7 @@ export const base = {
     "8.2rem",
   ],
   fontWeights: {
+    xtra: 900,
     heading: 700,
     mid: 600,
     body: 400,

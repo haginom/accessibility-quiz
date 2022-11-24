@@ -1,5 +1,11 @@
 import React from "react";
-import { TwitterExample, TwitterGoodExample, DesText } from "./embedLinks";
+import {
+  TwitterExample,
+  TwitterGoodExample,
+  DesText,
+  FacebookGoodExample,
+  FacebookGoodExample1,
+} from "./links";
 import Button from "../../../components/Button";
 import { Section, StyledTitle, ButtonPanel } from "../styling";
 import Continue from "../../../components/Continue";
@@ -34,7 +40,7 @@ export const VidText = ({ index, setIndex, platform, post }) => {
   );
 };
 
-export const VidTextQ = ({ setAnswer }) => {
+export const VidTextQ = ({ setAnswer, platform }) => {
   return (
     <>
       <h1>Do you have descriptive text accompanying the video?</h1>
@@ -46,7 +52,14 @@ export const VidTextQ = ({ setAnswer }) => {
         happening in your video or if your video simply doesn’t load for the
         user for whatever reason.
       </p>
-      <TwitterExample />
+      {platform === "twitter" ? (
+        <TwitterExample />
+      ) : platform === "facebook" ? (
+        <>
+          <FacebookGoodExample1 />
+        </>
+      ) : null}
+
       <p>
         Now that you know more about descriptive text and its benefits, does
         your video have descriptive text?
@@ -76,7 +89,12 @@ const No = ({ index, setIndex, setAnswer, platform, post }) => {
         Here is the original {post} with the trailer (bonus: it has open
         captions!):
       </p>
-      <TwitterGoodExample />
+      {platform === "twitter" ? (
+        <TwitterGoodExample />
+      ) : platform === "facebook" ? (
+        <FacebookGoodExample />
+      ) : null}
+
       <p>
         The accompanying thread is the descriptive text that describes the key
         details and parts of the trailer. You only need to describe the most

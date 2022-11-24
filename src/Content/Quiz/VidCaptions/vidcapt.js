@@ -12,6 +12,11 @@ import {
   TikTokInstructions,
   YouTubeInstructions,
   InstagramExample,
+  InstaGE,
+  InstaBE,
+  InstagramInstructions,
+  FacebookClosedCaptions2,
+  FacebookOpenCaptions2,
 } from "./links";
 import Button from "../../../components/Button";
 import { Columns } from "../../../theme/extra";
@@ -82,7 +87,6 @@ const VidCaptQ = ({ setAnswer, answer, platform }) => {
           who just don’t have their headphones with them.
         </p>
       )}
-
       {platform === "twitter" ? (
         <Flex>
           <TwitterOpenCaptions />
@@ -90,10 +94,10 @@ const VidCaptQ = ({ setAnswer, answer, platform }) => {
         </Flex>
       ) : platform === "facebook" ? (
         <Flex>
-          <FacebookOpenCaptions />
           <FacebookClosedCaptions />
+          <FacebookOpenCaptions />
         </Flex>
-      ) : platform === "insta" ? (
+      ) : platform === "instagram" ? (
         <Flex>
           <InstagramExample />
         </Flex>
@@ -150,7 +154,11 @@ const Yes = ({ index, setIndex, setAnswer, platform }) => {
             </>
           ) : platform === "facebook" ? (
             <>
-              <FacebookClosedCaptions />
+              <FacebookClosedCaptions2 />
+            </>
+          ) : platform === "instagram" ? (
+            <>
+              <InstaGE />
             </>
           ) : platform === "tiktok" ? (
             <>
@@ -173,7 +181,11 @@ const Yes = ({ index, setIndex, setAnswer, platform }) => {
             </>
           ) : platform === "facebook" ? (
             <>
-              <FacebookOpenCaptions />
+              <FacebookOpenCaptions2 />
+            </>
+          ) : platform === "instagram" ? (
+            <>
+              <InstaBE />
             </>
           ) : platform === "tiktok" ? (
             <>
@@ -221,6 +233,10 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
         <>
           <FacebookInstructions />
         </>
+      ) : platform === "instagram" ? (
+        <>
+          <InstagramInstructions />
+        </>
       ) : platform === "youtube" ? (
         <>
           <YouTubeInstructions />
@@ -230,17 +246,21 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
           <TikTokInstructions />
         </>
       ) : null}
-      <p>
-        Here's an example of a video with closed captions on {platform}(can be
-        toggled on and off with the CC button):
-      </p>
+
+      {platform === "instagram" ? null : (
+        <p>
+          Here's an example of a video with closed captions on {platform}(can be
+          toggled on and off with the CC button):
+        </p>
+      )}
+
       {platform === "twitter" ? (
         <>
           <TwitterClosedCaptions />
         </>
       ) : platform === "facebook" ? (
         <>
-          <FacebookClosedCaptions />
+          <FacebookClosedCaptions2 />
         </>
       ) : platform === "tiktok" ? (
         <>
@@ -251,17 +271,23 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
           <YouTubeClosedCaptions />
         </>
       ) : null}
-      <p>
-        Here's an example of a video with open captions on {platform} (while
-        still following the brand's style):
-      </p>
+
+      {platform === "instagram" ? (
+        <></>
+      ) : (
+        <p>
+          Here's an example of a video with open captions on {platform} (while
+          still following the brand's style):
+        </p>
+      )}
+
       {platform === "twitter" ? (
         <>
           <TwitterOpenCaptions />
         </>
       ) : platform === "facebook" ? (
         <>
-          <FacebookOpenCaptions />
+          <FacebookOpenCaptions2 />
         </>
       ) : platform === "tiktok" ? (
         <>
@@ -272,6 +298,7 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
           <YouTubeOpenCaptions />
         </>
       ) : null}
+
       <h2>How to Write Great Captions:</h2>
       <p>
         So, now you know how to add captions, but how do we write great

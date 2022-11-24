@@ -17,9 +17,11 @@ export const GlobalStyles = createGlobalStyle(
   body {
       flex-grow: 1;
       background: ${colors.background};
-    color: ${colors.text};
-    font-family: ${fonts.body};
-    line-height: ${lineHeights.body};
+      color: ${colors.text};
+      font-family: ${fonts.body};
+      line-height: ${lineHeights.body};
+      width:100%;
+      overflow-x:hidden;
   }
 
 
@@ -37,10 +39,15 @@ export const GlobalStyles = createGlobalStyle(
   }
 
   h1{
-    font-size:  ${fontSizes[5]};
+    font-size:  ${fontSizes[6]};
     text-align: center;
     margin-top: ${space[5]};
     line-height: ${lineHeights.heading};
+
+    @media (max-width: 768px){
+      font-size:  ${fontSizes[4]};
+      margin-top:${space[4]};
+    }
   }
   
   mt-m{

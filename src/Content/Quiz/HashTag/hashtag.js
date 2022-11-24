@@ -3,6 +3,9 @@ import { Section, StyledTitle, ButtonPanel } from "../styling";
 import Continue from "../../../components/Continue";
 import Button from "../../../components/Button";
 import {
+  InstaBadExample,
+  InstaGoodExample,
+  InstaGoodExample2,
   TikTokBadExample,
   TikTokGoodExample,
   TikTokInstructions,
@@ -75,11 +78,13 @@ const Yes = ({ index, setIndex, post, platform, setAnswer }) => {
       <h1>Perfect!</h1>
       <p>
         Just to double check, your hashtags should look something like the
-        following
+        following{" "}
         {platform === "twitter" ? (
           <>Disney {post} about Disability Pride Month:</>
         ) : platform === "tiktok" ? (
           <>Tiktok from Netflix promoting a show:</>
+        ) : platform === "instagram" ? (
+          <>Disney+ post about an upcoming show:</>
         ) : null}
       </p>
       {platform === "twitter" ? (
@@ -89,6 +94,10 @@ const Yes = ({ index, setIndex, post, platform, setAnswer }) => {
       ) : platform === "tiktok" ? (
         <>
           <TikTokGoodExample />
+        </>
+      ) : platform === "instagram" ? (
+        <>
+          <InstaGoodExample />
         </>
       ) : null}
       <Continue
@@ -123,6 +132,10 @@ const No = ({ index, setIndex, post, platform, setAnswer }) => {
         <>
           <TwitterBadExample />
         </>
+      ) : platform === "instagram" ? (
+        <>
+          <InstaGoodExample2 />
+        </>
       ) : null}
       <p>
         And instead, we're looking for hashtags (especially longer ones like{" "}
@@ -130,9 +143,14 @@ const No = ({ index, setIndex, post, platform, setAnswer }) => {
           <>this really long Netflix show title)</>
         ) : platform === "twitter" ? (
           <>the Disney {post} shown belown)</>
+        ) : platform === "instagram" ? (
+          <>this show's)</>
         ) : null}{" "}
-        that are easier to read. By capitalizing the first word in each word in
-        the hashtag, we make it clear what the hashtag says.
+        that are easier to read.
+      </p>
+      <p>
+        By capitalizing the first word in each word in the hashtag, we make it
+        clear what the hashtag says.
       </p>
       {platform === "tiktok" ? (
         <>
@@ -141,6 +159,10 @@ const No = ({ index, setIndex, post, platform, setAnswer }) => {
       ) : platform === "twitter" ? (
         <>
           <TwitterGoodExample />
+        </>
+      ) : platform === "instagram" ? (
+        <>
+          <InstaBadExample />
         </>
       ) : null}
       <p>You can even test it for yourself - compare how you read</p>

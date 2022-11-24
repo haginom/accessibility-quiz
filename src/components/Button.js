@@ -21,6 +21,7 @@ const Button = styled.button(
 
   @media (max-width: 768px){
     font-size:  ${theme.fontSizes[1]};
+    padding: ${theme.space[3]} ${theme.space[3]};
   }
 `
 );

@@ -3,12 +3,20 @@ import OpenCaptions from "../../../images/twitter/vidCapts-2.png";
 import TTOpenCaptions from "../../../images/tiktok/IMG_0974 1.png";
 import TTOpenCaptions2 from "../../../images/tiktok/IMG_1228 2 1.png";
 import TTClosedCaptions from "../../../images/tiktok/IMG_0980 1.png";
+import FBOpenCaptions from "../../../images/facebook/video/fb1.png";
+import FBOpenCaptions2 from "../../../images/facebook/video/fb4.png";
+
+import FBClosedCaptions from "../../../images/facebook/video/fb2.png";
+import FBClosedCaptions2 from "../../../images/facebook/video/fb3.png";
 import YTClosedCaptions from "../../../images/youtube/youtube1.png";
 import YTOpenCaptions from "../../../images/youtube/youtube2.png";
 import YTBadExample from "../../../images/youtube/youtube3.png";
 import YTGoodExample1 from "../../../images/youtube/youtube5.png";
 import YTGoodExample2 from "../../../images/youtube/youtube4.png";
 import InstaExample from "../../../images/instagram/video/insta1.png";
+import IgGE from "../../../images/instagram/video/insta2.png";
+import IgBE from "../../../images/instagram/video/insta3.png";
+import IgAuto from "../../../images/instagram/video/insta4.png";
 import styled from "styled-components";
 
 const StyledImage = styled.img`
@@ -23,30 +31,26 @@ export const TwitterOpenCaptions = () => (
 );
 
 export const FacebookOpenCaptions = () => (
-  <iframe
-    title="FBOpenCaptions"
-    src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FDisney%2Fvideos%2F585700193067008%2F&show_text=true&width=560&t=6"
-    width="560"
-    height="429"
-    scrolling="no"
-    frameborder="0"
-    allowfullscreen="true"
-  ></iframe>
+  <StyledImage src={FBOpenCaptions} alt="example of closed captions" />
+);
+export const FacebookOpenCaptions2 = () => (
+  <StyledImage src={FBOpenCaptions2} alt="example of closed captions" />
 );
 export const FacebookClosedCaptions = () => (
-  <iframe
-    title="FBClosedCaptions"
-    src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FDisney%2Fvideos%2F794324005264010%2F&show_text=true&width=560&t=32"
-    width="560"
-    height="429"
-    scrolling="no"
-    frameBorder="0"
-    allowFullscreen="true"
-  ></iframe>
+  <StyledImage src={FBClosedCaptions} alt="example of closed captions" />
+);
+export const FacebookClosedCaptions2 = () => (
+  <StyledImage src={FBClosedCaptions2} alt="example of closed captions" />
 );
 
 export const InstagramExample = () => (
   <StyledImage src={InstaExample} alt="example of closed captions" />
+);
+export const InstaGE = () => (
+  <StyledImage src={IgGE} alt="example of closed captions" />
+);
+export const InstaBE = () => (
+  <StyledImage src={IgBE} alt="example of closed captions" />
 );
 
 export const YouTubeOpenCaptions = () => (
@@ -93,6 +97,55 @@ export const FacebookInstructions = () => (
     <a href="https://www.facebook.com/help/509746615868430">
       How to add closed captions to a video from your Facebook Page
     </a>
+
+    <p>
+      Adding open captions is done while editing the actual video itself. Open
+      captions are directly embedded on the video. You cannot add open captions
+      through Facebook.
+    </p>
+  </>
+);
+export const InstagramInstructions = () => (
+  <>
+    <p>
+      As mentioned earlier, Instagram doesn't have an option to upload your own
+      closed captions, it only offers auto-generated closed captions.{" "}
+    </p>
+    <p>
+      If you want to learn more about how to access this, you can read
+      Instagram’s article on watching a Reel with their auto-generated captions.
+    </p>
+    <p>
+      Otherwise, we do not recommend settling for Instagram’s auto-generated
+      captions.
+    </p>
+    <StyledImage src={IgAuto} alt="example of closed captions" />
+    <p>
+      While their auto-generated captions are better than no captions, you
+      should consider adding open captions to your Reels. It’ll be more accurate
+      and easier to read. There are several great mobile apps or website
+      available for creating open captions including:
+    </p>
+    <ul>
+      <li>Veed.io</li>
+      <li>AutoCap</li>
+      <li>MixCaptions</li>
+      <li>Clipomatic</li>
+      <li>Kapwing</li>
+    </ul>
+    <p>
+      These apps/websites make it easy and inexpensive to add open captions to
+      your videos, and some of them even allow you to download your finished
+      captions as an SRT file.
+    </p>
+    <p>Here's an example of a video with open captions on Instagram:</p>
+    <StyledImage src={IgGE} alt="example of closed captions" />
+
+    <p>
+      Here's an example of a video with captions on Instagram that is still in
+      accordance with the Stranger Things’ style:
+    </p>
+    <StyledImage src={IgBE} alt="example of closed captions" />
   </>
 );
 export const YouTubeInstructions = () => (

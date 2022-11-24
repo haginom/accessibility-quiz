@@ -4,6 +4,10 @@ import styled from "styled-components";
 const SLayout = styled.div`
   height: 100%;
   margin: 0 6rem 0 6rem;
+  
+  @media (max-width: 768px){
+    margin: 0 1rem 0 1rem;
+  }
 `;
 
 const Layout = ({ currentTheme, setCurrentTheme, children }) => {

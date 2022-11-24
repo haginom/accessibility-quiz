@@ -1,10 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import Grow from "../../images/intro/grow.png";
 import Phone from "../../images/intro/phone.png";
+import Grow from "../../images/intro/grow.png";
 import Button from "../../components/Button";
 import styled from "styled-components";
-import { Layout } from "../../theme/extra";
 
 export const StatsOne = ({ index, setIndex }) => {
   return (
@@ -12,9 +11,11 @@ export const StatsOne = ({ index, setIndex }) => {
       <Helmet>
         <title>Why Accessibility Matters</title>
       </Helmet>
-      <h1>Why Accessibility Matters</h1>
-      <PageLayout colOne="65%" colTwo="40%">
-        <div>
+      <Wrapper>
+        <Header>
+          <h1>Why Accessibility Matters</h1>
+        </Header>
+        <Content>
           <Text space="6">
             According to the World Health Organsation, around 15% of the world
             population has a disability. That means there's a huge portion of
@@ -35,25 +36,27 @@ export const StatsOne = ({ index, setIndex }) => {
               accessibility needs
             </Text>
           </Facts>
-        </div>
-        <img src={Phone} alt="" />
-      </PageLayout>
-      <Layout>
-        <Button
-          fontSize="1"
-          className="pulse-grow-on-hover"
-          onClick={() => setIndex(index + 1)}
-        >
-          Continue
-        </Button>
-        <Button
-          fontSize="1"
-          className="pulse-grow-on-hover"
-          onClick={() => setIndex(index - 1)}
-        >
-          Go Back <span>&#8592;</span>
-        </Button>
-      </Layout>
+        </Content>
+        <ImageContainer>
+          <Img src={Phone} alt="" />
+        </ImageContainer>
+        <NavPanel>
+          <Button
+            fontSize="1"
+            className="pulse-grow-on-hover"
+            onClick={() => setIndex(index + 1)}
+          >
+            Continue
+          </Button>
+          <Button
+            fontSize="1"
+            className="pulse-grow-on-hover"
+            onClick={() => setIndex(index - 1)}
+          >
+            Go Back <span>&#8592;</span>
+          </Button>
+        </NavPanel>
+      </Wrapper>
     </>
   );
 };
@@ -61,9 +64,11 @@ export const StatsOne = ({ index, setIndex }) => {
 export const StatsTwo = ({ index, setIndex }) => {
   return (
     <>
-      <h1>Why Accessibility Matters</h1>
-      <PageLayout colOne="55%" colTwo="40%">
-        <div>
+      <Wrapper>
+        <Header>
+          <h1>Why Accessibility Matters</h1>
+        </Header>
+        <Content>
           <Text>
             In addition to being a smart business decision, accessibility and
             inclusion can help boost your reputation. Millenials and Gen Z care
@@ -83,69 +88,114 @@ export const StatsTwo = ({ index, setIndex }) => {
             Thus, we should aim to make our social media as accessible as
             possible - it benefits everyone.
           </Text>
-        </div>
-        <img src={Grow} alt="" />
-      </PageLayout>
-      <Layout>
-        <Button
-          fontSize="1"
-          className="pulse-grow-on-hover"
-          onClick={() => setIndex(index + 1)}
-        >
-          Continue
-        </Button>
-        <Button
-          fontSize="1"
-          className="pulse-grow-on-hover"
-          onClick={() => setIndex(index - 1)}
-        >
-          Go Back <span>&#8592;</span>
-        </Button>
-      </Layout>
+        </Content>
+        <ImageContainer>
+          <Img src={Grow} alt="" />
+        </ImageContainer>
+        <NavPanel>
+          <Button
+            fontSize="1"
+            className="pulse-grow-on-hover"
+            onClick={() => setIndex(index + 1)}
+          >
+            Continue
+          </Button>
+          <Button
+            fontSize="1"
+            className="pulse-grow-on-hover"
+            onClick={() => setIndex(index - 1)}
+          >
+            Go Back <span>&#8592;</span>
+          </Button>
+        </NavPanel>
+      </Wrapper>
     </>
   );
 };
 
-const PageLayout = styled.div(
+const Wrapper = styled.div(
   ({ theme, colOne, colTwo }) => `
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(125px, auto);
+      grid-gap: 0.5rem;
+      grid-template-areas:
+      "hd hd hd hd hd hd hd hd hd hd hd hd"
+      "main main main main main main main main img img img img"
+      ". . nav nav nav nav . . . . . .";
 
-    div:first-child{
-      flex: 0 0 ${colOne};
-      max-width: ${colOne};
-    }
-
-    img:last-child{
-      flex: 0 0 ${colTwo};
-      max-width: ${colTwo};
-      min-width: 300px;
-      object-fit: contain;
-      padding: 1rem;
-    }
-  `
+      @media (max-width: 768px){
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(25px, auto);
+        grid-template-areas:
+          "hd hd hd"
+          "main main main"
+          "img img img"
+          "nav nav nav"
+      }
+      `
 );
+const Header = styled.div`
+  grid-area: hd;
+  margin-bottom: 1rem;
+`;
 
-const Facts = styled.div(
-  ({ theme }) => `
-  display: flex;
-  margin: 2rem 2.5rem;
-
-  > * {
-    flex: 0 0 26.5%;
-    max-width: 26.5%;
-    margin: 0 1rem;
+const Content = styled.div`
+  grid-area: main;
+  margin-left: 2rem;
+  margin-bottom: 0.25rem;
+  margin-top: 1rem;
+  @media (max-width: 768px) {
+    margin-top: 1rem;
   }
+`;
+const NavPanel = styled.div`
+  grid-area: nav;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
+`;
+const ImageContainer = styled.div`
+  grid-area: img;
+  margin-top: 1rem;
 
-`
-);
+  @media (max-width: 768px) {
+    margin-left: 4rem;
+    margin-right: 2rem;
+    margin-top: 0rem;
+  }
+`;
+
+const Img = styled.img`
+  width: 100%;
+  object-fit: contain;
+`;
+
+const Facts = styled.div`
+  display: flex;
+  margin-top: 2rem;
+  > * {
+    flex: 0 1 27%;
+    margin: 1rem 1rem 1rem 0rem;
+  }
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+  }
+`;
 
 const Span = styled.span(
   ({ theme }) => `
     display: block;
     font-size: ${theme.fontSizes[5]};
-    font-weight: ${theme.fontWeights.heading} 
+    font-weight: ${theme.fontWeights.xtra};
+
+    @media (max-width: 768px){
+      font-size: ${theme.fontSizes[1]};
+    }
   `
 );
 
@@ -155,6 +205,8 @@ const Text = styled.p(
   font-size: ${theme.fontSizes[1]};
   line-height: ${theme.lineHeights.body};
   margin-bottom: 1rem;
-  
+  @media (max-width: 768px){
+    font-size: ${theme.fontSizes[0]};
+  }
   `
 );
