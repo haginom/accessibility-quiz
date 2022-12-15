@@ -1,5 +1,11 @@
 import React from "react";
-import { Section, StyledTitle, ButtonPanel } from "../styling";
+import {
+  Section,
+  StyledTitle,
+  ButtonPanel,
+  QuizHeaders,
+  ImgContainer,
+} from "../styling";
 import Continue from "../../../components/Continue";
 import Button from "../../../components/Button";
 import {
@@ -48,10 +54,10 @@ export const Hashtag = ({ index, setIndex, platform, post }) => {
 const HashtagQ = ({ setAnswer, platform }) => {
   return (
     <>
-      <h1>
+      <QuizHeaders>
         If you are using a hashtag, did you capitalize the first letter in each
         word?
-      </h1>
+      </QuizHeaders>
       <p>
         This kind of capitalization style is called Title Case, Pascal Case, or
         Camel Case.
@@ -75,7 +81,7 @@ const HashtagQ = ({ setAnswer, platform }) => {
 const Yes = ({ index, setIndex, post, platform, setAnswer }) => {
   return (
     <>
-      <h1>Perfect!</h1>
+      <QuizHeaders>Perfect!</QuizHeaders>
       <p>
         Just to double check, your hashtags should look something like the
         following{" "}
@@ -87,19 +93,21 @@ const Yes = ({ index, setIndex, post, platform, setAnswer }) => {
           <>Disney+ post about an upcoming show:</>
         ) : null}
       </p>
-      {platform === "twitter" ? (
-        <>
-          <TwitterGoodExample />
-        </>
-      ) : platform === "tiktok" ? (
-        <>
-          <TikTokGoodExample />
-        </>
-      ) : platform === "instagram" ? (
-        <>
-          <InstaGoodExample />
-        </>
-      ) : null}
+      <ImgContainer>
+        {platform === "twitter" ? (
+          <>
+            <TwitterGoodExample />
+          </>
+        ) : platform === "tiktok" ? (
+          <>
+            <TikTokGoodExample />
+          </>
+        ) : platform === "instagram" ? (
+          <>
+            <InstaGoodExample />
+          </>
+        ) : null}
+      </ImgContainer>
       <Continue
         pages={1}
         index={index}
@@ -113,36 +121,50 @@ const Yes = ({ index, setIndex, post, platform, setAnswer }) => {
 const No = ({ index, setIndex, post, platform, setAnswer }) => {
   return (
     <>
-      <h1>Let’s fix it!</h1>
+      <QuizHeaders>Let’s fix it!</QuizHeaders>
       <p>
         This is one of the easiest fixes you can make that can greatly improve
         your {post}’s accessibility to users.
       </p>
-      <p>
-        What we're trying to avoid is leaving people confused when they read the
-        hashtag.{" "}
-      </p>
-
-      {platform === "tiktok" ? (
-        <>
-          <TikTokInstructions />
-          <TikTokBadExample />
-        </>
-      ) : platform === "twitter" ? (
-        <>
-          <TwitterBadExample />
-        </>
-      ) : platform === "instagram" ? (
-        <>
-          <InstaGoodExample2 />
-        </>
-      ) : null}
+      {platform === "twitter" ? (
+        <p>
+          What we’re trying to avoid are bad hashtags caused by misreading where
+          one word stops and begins. Like the infamous Susan Boyle’s album party
+          hashtag as seen{" "}
+          <a href="https://twitter.com/Disney/status/1552005843490639873?s=20&t=HONcEcZCqBqJjfuoJsLocg">
+            in George Takei’s Tweet.{" "}
+          </a>
+        </p>
+      ) : (
+        <p>
+          What we're trying to avoid is leaving people confused when they read
+          the hashtag.{" "}
+        </p>
+      )}
+      <ImgContainer>
+        {platform === "tiktok" ? (
+          <>
+            <TikTokInstructions />
+            <TikTokBadExample />
+          </>
+        ) : platform === "twitter" ? (
+          <>
+            <TwitterBadExample />
+          </>
+        ) : platform === "instagram" ? (
+          <>
+            <InstaGoodExample2 />
+          </>
+        ) : null}
+      </ImgContainer>
       <p>
         And instead, we're looking for hashtags (especially longer ones like{" "}
         {platform === "tiktok" ? (
           <>this really long Netflix show title)</>
         ) : platform === "twitter" ? (
-          <>the Disney {post} shown belown)</>
+          <a href="https://twitter.com/Disney/status/1552005843490639873?s=20&t=HONcEcZCqBqJjfuoJsLocg">
+            the Disney {post} shown below.)
+          </a>
         ) : platform === "instagram" ? (
           <>this show's)</>
         ) : null}{" "}
@@ -152,19 +174,21 @@ const No = ({ index, setIndex, post, platform, setAnswer }) => {
         By capitalizing the first word in each word in the hashtag, we make it
         clear what the hashtag says.
       </p>
-      {platform === "tiktok" ? (
-        <>
-          <TikTokGoodExample />
-        </>
-      ) : platform === "twitter" ? (
-        <>
-          <TwitterGoodExample />
-        </>
-      ) : platform === "instagram" ? (
-        <>
-          <InstaBadExample />
-        </>
-      ) : null}
+      <ImgContainer>
+        {platform === "tiktok" ? (
+          <>
+            <TikTokGoodExample />
+          </>
+        ) : platform === "twitter" ? (
+          <>
+            <TwitterGoodExample />
+          </>
+        ) : platform === "instagram" ? (
+          <>
+            <InstaBadExample />
+          </>
+        ) : null}
+      </ImgContainer>
       <p>You can even test it for yourself - compare how you read</p>
       <p>#TheMostHatedManOnTheInternet</p>
       <p>vs. how you read</p>

@@ -38,6 +38,7 @@ const Heading = styled.h1(
     font-size: ${theme.fontSizes[9]};
     font-weight: ${theme.fontWeights.heading};
     text-align: left;
+    letter-spacing: .3rem;
 
     @media (max-width: 768px){
       font-size:  ${theme.fontSizes[6]};
@@ -52,6 +53,7 @@ const SubHeading = styled.p(
     font-size: ${theme.fontSizes[5]};
     font-weight: ${theme.fontWeights.heading};
     line-height: 1;
+    letter-spacing: .15rem;
 
     @media (max-width: 768px){
       font-size:  ${theme.fontSizes[2]};
@@ -68,7 +70,6 @@ const Layout = styled.div(
   -ms-transform: translateY(-45%);
   transform: translateY(-45%);
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 
@@ -77,11 +78,13 @@ const Layout = styled.div(
     max-width: 45%;
     min-width: 300px;
     height: auto;
+    object-fit: contain;
     
   }
   div:last-child {
-    flex: 0 0 45%;
-    max-width: 45%;
+    flex: 0 0 43%;
+    max-width: 44%;
+
   }
 
   @media (max-width: 768px){

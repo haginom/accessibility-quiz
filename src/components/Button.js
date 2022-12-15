@@ -13,11 +13,12 @@ const Button = styled.button(
   color: ${!secondary ? "#fff" : theme.colors.text};
   border: 0;
   border-radius: ${theme.radii[2]};
-  padding: ${theme.space[4]} ${theme.space[5]};
+  padding: ${theme.space[3]} ${theme.space[4]};
   font-family: ${theme.fonts.body};
-  font-size: ${theme.fontSizes[fontSize]} ;
+  font-size: ${theme.fontSizes[1]} ;
   cursor: pointer;
   min-width: 8rem;
+  margin-top: 1rem;
 
   @media (max-width: 768px){
     font-size:  ${theme.fontSizes[1]};

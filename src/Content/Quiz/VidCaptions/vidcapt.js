@@ -1,37 +1,31 @@
 import React from "react";
-import {
-  TwitterOpenCaptions,
-  TwitterClosedCaptions,
-  TikTokClosedCaptions,
-  TikTokOpenCaptions,
-  TikTokOpenCaptions2,
-  FacebookOpenCaptions,
-  FacebookClosedCaptions,
-  TwitterInstructions,
-  FacebookInstructions,
-  TikTokInstructions,
-  YouTubeInstructions,
-  InstagramExample,
-  InstaGE,
-  InstaBE,
-  InstagramInstructions,
-  FacebookClosedCaptions2,
-  FacebookOpenCaptions2,
-} from "./links";
+import TwClosedCapts from "../../../images/twitter/video/vidCapts.png";
+import TwOpenCapts from "../../../images/twitter/video/vidCapts-2.png";
+import TTOpenCapts from "../../../images/tiktok/IMG_0974 1.png";
+import TTClosedCapts from "../../../images/tiktok/IMG_0980 1.png";
+import FBOpenCapts from "../../../images/facebook/video/fb1.png";
+import FBClosedCapts from "../../../images/facebook/video/fb2.png";
+import YTClosedCapts from "../../../images/youtube/youtube1.png";
+import YTOpenCapts from "../../../images/youtube/youtube2.png";
+import IgExample from "../../../images/instagram/video/insta1.png";
+import Examples from "./examples";
 import Button from "../../../components/Button";
-import { Columns } from "../../../theme/extra";
-import { Section, StyledTitle, ButtonPanel } from "../styling";
+import { Section, StyledTitle, ButtonPanel, QuizHeaders } from "../styling";
 import Continue from "../../../components/Continue";
 import styled from "styled-components";
-import { YouTubeClosedCaptions, YouTubeOpenCaptions } from "./links";
+import {
+  SocialMediaExample,
+  TwitterInstructions,
+  FacebookInstructions,
+  InstagramInstructions,
+  YouTubeInstructions,
+  TikTokInstructions,
+} from "./links";
 
 const Flex = styled.div`
   display: flex;
-  justify-content: center;
-  > * {
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
+  justify-content: space-around;
+  margin-bottom: 1rem;
 `;
 
 export const VidCapt = ({ index, setIndex, platform, post }) => {
@@ -67,7 +61,9 @@ export const VidCapt = ({ index, setIndex, platform, post }) => {
 const VidCaptQ = ({ setAnswer, answer, platform }) => {
   return (
     <>
-      <h1>Does your video have captions (either closed or open)?</h1>
+      <QuizHeaders>
+        Does your video have captions (either closed or open)?
+      </QuizHeaders>
       {platform === "insta" ? (
         <p>
           Adding captions to your Reels is important for accessibility. Most of
@@ -89,27 +85,54 @@ const VidCaptQ = ({ setAnswer, answer, platform }) => {
       )}
       {platform === "twitter" ? (
         <Flex>
-          <TwitterOpenCaptions />
-          <TwitterClosedCaptions />
+          <SocialMediaExample
+            img={TwOpenCapts}
+            alt={"example of twitter open captions"}
+          />
+          <SocialMediaExample
+            img={TwClosedCapts}
+            alt={"example of twitter open captions"}
+          />
         </Flex>
       ) : platform === "facebook" ? (
         <Flex>
-          <FacebookClosedCaptions />
-          <FacebookOpenCaptions />
+          <SocialMediaExample
+            img={FBOpenCapts}
+            alt={"example of Facebook open captions"}
+          />
+          <SocialMediaExample
+            img={FBClosedCapts}
+            alt={"example of Facebook closed captions"}
+          />
         </Flex>
       ) : platform === "instagram" ? (
         <Flex>
-          <InstagramExample />
+          <SocialMediaExample
+            img={IgExample}
+            alt={"example of Instagram captions"}
+          />
         </Flex>
       ) : platform === "youtube" ? (
         <Flex>
-          <YouTubeOpenCaptions />
-          <YouTubeClosedCaptions />
+          <SocialMediaExample
+            img={YTOpenCapts}
+            alt={"example of YouTube captions"}
+          />
+          <SocialMediaExample
+            img={YTClosedCapts}
+            alt={"example of YouTube captions"}
+          />
         </Flex>
       ) : platform === "tiktok" ? (
         <Flex>
-          <TikTokClosedCaptions />
-          <TikTokOpenCaptions />
+          <SocialMediaExample
+            img={TTOpenCapts}
+            alt={"example of YouTube captions"}
+          />
+          <SocialMediaExample
+            img={TTClosedCapts}
+            alt={"example of YouTube captions"}
+          />
         </Flex>
       ) : null}
       <p>
@@ -137,67 +160,12 @@ const VidCaptQ = ({ setAnswer, answer, platform }) => {
 const Yes = ({ index, setIndex, setAnswer, platform }) => {
   return (
     <>
-      <h1>Fantastic</h1>
+      <QuizHeaders>Fantastic</QuizHeaders>
       <p>
         Below are some good examples of captioned videos on {platform}. If your
         captioned video look like this, you're good to go!
       </p>
-      <Columns>
-        <div>
-          <p>
-            Here's an example of a video with closed captions on {platform}(can
-            be toggled on and off with the CC button):
-          </p>
-          {platform === "twitter" ? (
-            <>
-              <TwitterClosedCaptions />
-            </>
-          ) : platform === "facebook" ? (
-            <>
-              <FacebookClosedCaptions2 />
-            </>
-          ) : platform === "instagram" ? (
-            <>
-              <InstaGE />
-            </>
-          ) : platform === "tiktok" ? (
-            <>
-              <TikTokClosedCaptions />
-            </>
-          ) : platform === "youtube" ? (
-            <>
-              <YouTubeClosedCaptions />
-            </>
-          ) : null}
-        </div>
-        <div>
-          <p>
-            Here's an example of a video with open captions on {platform} (while
-            still following the brand's style):
-          </p>
-          {platform === "twitter" ? (
-            <>
-              <TikTokOpenCaptions2 />
-            </>
-          ) : platform === "facebook" ? (
-            <>
-              <FacebookOpenCaptions2 />
-            </>
-          ) : platform === "instagram" ? (
-            <>
-              <InstaBE />
-            </>
-          ) : platform === "tiktok" ? (
-            <>
-              <TikTokOpenCaptions />
-            </>
-          ) : platform === "youtube" ? (
-            <>
-              <YouTubeOpenCaptions />
-            </>
-          ) : null}
-        </div>
-      </Columns>
+      <Examples platform={platform} />
       {platform === "twitter" || platform === "facebook" ? (
         <Continue
           index={index}
@@ -220,7 +188,7 @@ const Yes = ({ index, setIndex, setAnswer, platform }) => {
 const No = ({ index, setIndex, setAnswer, platform }) => {
   return (
     <>
-      <h1>Let's add those captions</h1>
+      <QuizHeaders>Let's add those captions!</QuizHeaders>
       <p>
         Unless you're posting a video with absolutely zero sound, you should
         have captions (closed or open) with your videos.
@@ -247,64 +215,14 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
         </>
       ) : null}
 
-      {platform === "instagram" ? null : (
-        <p>
-          Here's an example of a video with closed captions on {platform}(can be
-          toggled on and off with the CC button):
-        </p>
-      )}
-
-      {platform === "twitter" ? (
-        <>
-          <TwitterClosedCaptions />
-        </>
-      ) : platform === "facebook" ? (
-        <>
-          <FacebookClosedCaptions2 />
-        </>
-      ) : platform === "tiktok" ? (
-        <>
-          <TikTokClosedCaptions />
-        </>
-      ) : platform === "youtube" ? (
-        <>
-          <YouTubeClosedCaptions />
-        </>
-      ) : null}
-
-      {platform === "instagram" ? (
-        <></>
-      ) : (
-        <p>
-          Here's an example of a video with open captions on {platform} (while
-          still following the brand's style):
-        </p>
-      )}
-
-      {platform === "twitter" ? (
-        <>
-          <TwitterOpenCaptions />
-        </>
-      ) : platform === "facebook" ? (
-        <>
-          <FacebookOpenCaptions2 />
-        </>
-      ) : platform === "tiktok" ? (
-        <>
-          <TikTokOpenCaptions2 />
-        </>
-      ) : platform === "youtube" ? (
-        <>
-          <YouTubeOpenCaptions />
-        </>
-      ) : null}
+      <Examples platform={platform} />
 
       <h2>How to Write Great Captions:</h2>
       <p>
         So, now you know how to add captions, but how do we write great
         captions? Here are a few things to keep in mind:
       </p>
-      <ol>
+      <ol className="large-numbers">
         <li>
           Readability - Take into consideration the size, color, background,
           font, and case of your captions.
@@ -323,8 +241,13 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
         </li>
       </ol>
       <p>
-        To learn more about how to write great captions, visit this article
-        written by an actual Deaf person who uses captions.
+        To learn more about how to write great captions, visit{" "}
+        <a
+          className="usefulLinks"
+          href="https://meryl.net/captioned-videos-complete-guide/#Caption10_Guidelines_Create_Great_Captioned_Videos"
+        >
+          this article written by an actual Deaf person who uses captions.
+        </a>
       </p>
       {platform === "twitter" || platform === "facebook" ? (
         <Continue

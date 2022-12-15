@@ -12,7 +12,7 @@ export const Heading = styled.h1(
 
 export const ButtonContainer = styled.div(
   ({ theme }) => `
-    margin-top: ${theme.space[5]};
+    margin-top: ${theme.space[3]};
     margin-left: 0.5rem;
 
     @media (max-width: 768px){
@@ -23,21 +23,21 @@ export const ButtonContainer = styled.div(
 
 export const Columns = styled.div(
   ({ theme }) => `
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    max-width: 1000px;
+    margin-top: 2rem;
 
-    > * {
-      flex: 0 1 0;
-      margin-left: 3rem;
-      margin-right: 3rem;
-
-      > * 
-      {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-      }
+    div:nth-of-type(1){
+      order:3;
     }
+
+    img:nth-of-type(2){
+      order: 2;
+    }
+
+
   `
 );
 
@@ -48,6 +48,9 @@ export const ContainerThree = styled.div(
     grid-auto-rows: 1fr;
     margin-top: 2rem;
     max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
     @media (max-width: 768px){
       grid-template-columns: repeat(auto-fill, 320px);
@@ -63,7 +66,7 @@ export const ContainerFive = styled.div(
     grid-template-columns: repeat(5, 1fr);
     display: grid;
     grid-auto-rows: 1fr;
-    margin-top: 2rem;
+
 
     @media (max-width: 768px){
       grid-template-columns: repeat(auto-fill, 320px);

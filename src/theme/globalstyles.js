@@ -1,4 +1,5 @@
-import { createGlobalStyle, css, keyframes } from "styled-components";
+import { createGlobalStyle } from "styled-components";
+import "../index.css";
 
 export const GlobalStyles = createGlobalStyle(
   ({ theme: { fonts, fontSizes, colors, lineHeights, space } }) => `
@@ -41,13 +42,18 @@ export const GlobalStyles = createGlobalStyle(
   h1{
     font-size:  ${fontSizes[6]};
     text-align: center;
-    margin-top: ${space[5]};
     line-height: ${lineHeights.heading};
+    padding-top: 1rem;
 
     @media (max-width: 768px){
       font-size:  ${fontSizes[4]};
-      margin-top:${space[4]};
     }
+  }
+
+  h2{
+    margin-bottom: 1rem;
+    font-size:  ${fontSizes[2]};
+    font-weight: 900;
   }
   
   mt-m{
@@ -57,7 +63,57 @@ export const GlobalStyles = createGlobalStyle(
   p{
     font-size: ${fontSizes[1]};
     line-height: ${lineHeights.body};
+    margin-bottom: 1rem;
   }
+
+  a{
+    border-bottom: .05em solid ${colors.primary};
+    box-shadow: inset 0 -0.05em 0 ${colors.primary};
+    color: inherit;
+    transition: background-color .25s cubic-bezier(.33, .66, .66, 1);
+		text-decoration: none;
+    display:inline;
+  }
+  a:hover, a:focus, a:active {
+    background-color: #b4e7f8;
+}
+
+  ul.inner-list{
+    list-style: inside;
+    margin-left: 3rem;
+    font-size: ${fontSizes[0]};
+
+    
+    > li {
+      margin: 0.5rem 0 0rem 1rem;
+       
+    }
+  }
+
+  ol.large-numbers {
+    counter-reset:li; /* Initiate a counter */
+    margin-left:0; /* Remove the default left margin */
+    padding-left:0; /* Remove the default left padding */
+    line-height: 1.25;
+  }
+  ol.large-numbers > p {
+    font-size:  ${fontSizes[0]};
+    margin: 1rem 0rem 0rem 1rem;
+    padding: 0 2rem 0 1rem;
+  }
+  ol.large-numbers > li {
+    position:relative; /* Create a positioning context */
+    margin: 2rem 0 1rem 2rem;
+    padding: 0 2rem 0 1rem;
+    font-size:  ${fontSizes[1]};
+    font-weight: 900;
+  }
+
+  .mt-extra{
+    margin-top:2rem;
+  }
+  
+ 
 
  
 

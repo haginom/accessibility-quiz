@@ -2,7 +2,7 @@ import React from "react";
 import { ButtonPanel } from "../Content/Quiz/styling";
 import Button from "./Button";
 
-export const Continue = ({ index, setIndex, setAnswer, pages }) => {
+export const Continue = ({ fontSize, index, setIndex, setAnswer, pages }) => {
   return (
     <ButtonPanel>
       <Button onClick={() => setIndex(index + pages)}>Continue</Button>

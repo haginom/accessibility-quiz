@@ -1,73 +1,13 @@
-import ClosedCaptions from "../../../images/twitter/vidCapts.png";
-import OpenCaptions from "../../../images/twitter/vidCapts-2.png";
-import TTOpenCaptions from "../../../images/tiktok/IMG_0974 1.png";
-import TTOpenCaptions2 from "../../../images/tiktok/IMG_1228 2 1.png";
-import TTClosedCaptions from "../../../images/tiktok/IMG_0980 1.png";
-import FBOpenCaptions from "../../../images/facebook/video/fb1.png";
-import FBOpenCaptions2 from "../../../images/facebook/video/fb4.png";
-
-import FBClosedCaptions from "../../../images/facebook/video/fb2.png";
-import FBClosedCaptions2 from "../../../images/facebook/video/fb3.png";
-import YTClosedCaptions from "../../../images/youtube/youtube1.png";
-import YTOpenCaptions from "../../../images/youtube/youtube2.png";
+import { ImgContainer, LinkContainer, StyledLink } from "../styling";
 import YTBadExample from "../../../images/youtube/youtube3.png";
 import YTGoodExample1 from "../../../images/youtube/youtube5.png";
 import YTGoodExample2 from "../../../images/youtube/youtube4.png";
-import InstaExample from "../../../images/instagram/video/insta1.png";
-import IgGE from "../../../images/instagram/video/insta2.png";
-import IgBE from "../../../images/instagram/video/insta3.png";
 import IgAuto from "../../../images/instagram/video/insta4.png";
-import styled from "styled-components";
 
-const StyledImage = styled.img`
-  max-width: 350px;
-`;
-
-export const TwitterClosedCaptions = () => (
-  <StyledImage src={ClosedCaptions} alt="example of closed captions" />
-);
-export const TwitterOpenCaptions = () => (
-  <StyledImage src={OpenCaptions} alt="example of closed captions" />
-);
-
-export const FacebookOpenCaptions = () => (
-  <StyledImage src={FBOpenCaptions} alt="example of closed captions" />
-);
-export const FacebookOpenCaptions2 = () => (
-  <StyledImage src={FBOpenCaptions2} alt="example of closed captions" />
-);
-export const FacebookClosedCaptions = () => (
-  <StyledImage src={FBClosedCaptions} alt="example of closed captions" />
-);
-export const FacebookClosedCaptions2 = () => (
-  <StyledImage src={FBClosedCaptions2} alt="example of closed captions" />
-);
-
-export const InstagramExample = () => (
-  <StyledImage src={InstaExample} alt="example of closed captions" />
-);
-export const InstaGE = () => (
-  <StyledImage src={IgGE} alt="example of closed captions" />
-);
-export const InstaBE = () => (
-  <StyledImage src={IgBE} alt="example of closed captions" />
-);
-
-export const YouTubeOpenCaptions = () => (
-  <StyledImage src={YTOpenCaptions} alt="example of closed captions" />
-);
-export const YouTubeClosedCaptions = () => (
-  <StyledImage src={YTClosedCaptions} alt="example of closed captions" />
-);
-
-export const TikTokClosedCaptions = () => (
-  <StyledImage src={TTClosedCaptions} alt="example of closed captions" />
-);
-export const TikTokOpenCaptions = () => (
-  <StyledImage src={TTOpenCaptions} alt="example of closed captions" />
-);
-export const TikTokOpenCaptions2 = () => (
-  <StyledImage src={TTOpenCaptions2} alt="example of closed captions" />
+export const SocialMediaExample = ({ img, altText }) => (
+  <ImgContainer>
+    <img src={img} alt={altText} />
+  </ImgContainer>
 );
 
 export const TwitterInstructions = () => (
@@ -91,13 +31,14 @@ export const FacebookInstructions = () => (
       Adding closed captions on Facebook differs based on if you’re adding
       captions to a Video Ad or a video from your Facebook Page.
     </p>
-    <a href="https://www.facebook.com/business/help/1675722002698686?id=603833089963720">
-      How to add closed captions to a Facebook Video Ad
-    </a>
-    <a href="https://www.facebook.com/help/509746615868430">
-      How to add closed captions to a video from your Facebook Page
-    </a>
-
+    <LinkContainer>
+      <StyledLink href="https://www.facebook.com/business/help/1675722002698686?id=603833089963720">
+        <p>How to add closed captions to a Facebook Video Ad</p>
+      </StyledLink>
+      <StyledLink href="https://www.facebook.com/help/509746615868430">
+        <p>How to add closed captions to a video from your Facebook Page </p>
+      </StyledLink>
+    </LinkContainer>
     <p>
       Adding open captions is done while editing the actual video itself. Open
       captions are directly embedded on the video. You cannot add open captions
@@ -119,7 +60,9 @@ export const InstagramInstructions = () => (
       Otherwise, we do not recommend settling for Instagram’s auto-generated
       captions.
     </p>
-    <StyledImage src={IgAuto} alt="example of closed captions" />
+    <ImgContainer>
+      <img src={IgAuto} alt="example of closed captions" />
+    </ImgContainer>
     <p>
       While their auto-generated captions are better than no captions, you
       should consider adding open captions to your Reels. It’ll be more accurate
@@ -138,14 +81,6 @@ export const InstagramInstructions = () => (
       your videos, and some of them even allow you to download your finished
       captions as an SRT file.
     </p>
-    <p>Here's an example of a video with open captions on Instagram:</p>
-    <StyledImage src={IgGE} alt="example of closed captions" />
-
-    <p>
-      Here's an example of a video with captions on Instagram that is still in
-      accordance with the Stranger Things’ style:
-    </p>
-    <StyledImage src={IgBE} alt="example of closed captions" />
   </>
 );
 export const YouTubeInstructions = () => (
@@ -162,7 +97,9 @@ export const YouTubeInstructions = () => (
       captions are directly embedded on the video. You cannot add open captions
       through YouTube.
     </p>
-    <StyledImage src={YTBadExample} alt="bad example of closed captions" />
+    <ImgContainer>
+      <img src={YTBadExample} alt="bad example of closed captions" />
+    </ImgContainer>
     <p>
       This is an example of video with auto-generated captions. While it’s
       better than nothing, it can be inaccurate and incorrectly formatted, as
@@ -177,8 +114,12 @@ export const YouTubeInstructions = () => (
       captions (and not just auto-generated ones) because you will see a CC icon
       below the video.
     </p>
-    <StyledImage src={YTGoodExample1} alt="bad example of closed captions" />
-    <StyledImage src={YTGoodExample2} alt="bad example of closed captions" />
+    <ImgContainer>
+      <img src={YTGoodExample1} alt="bad example of closed captions" />
+    </ImgContainer>
+    <ImgContainer>
+      <img src={YTGoodExample2} alt="bad example of closed captions" />
+    </ImgContainer>
   </>
 );
 export const TikTokInstructions = () => (

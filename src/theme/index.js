@@ -1,23 +1,25 @@
 import "@fontsource/roboto"; // Defaults to weight 400.
+import "../index.css"
 
 
 export const base = {
   breakpoints: ["768px"],
-  space: ["0px", "2px", "4px", "8px", "16px", "32px", "64px", "128px", "256px"],
+  space: ["0rem", ".5rem", "1rem", "1.3rem", "2rem", "3rem", "64px", "128px", "256px"],
   sizes: {
     body: "800px",
   },
   fonts: {
     heading: "Inter, system-ui, sans-serif",
     body: "Roboto, Inter, system-ui, sans-serif",
+    decorative: "Anton"
   },
   fontSizes: [
-    "1rem",
-    "1.2rem",
+    "1.1rem",
+    "1.3rem",
     "2rem",
     "2.8rem",
     "3.4rem",
-    "4rem",
+    "3.7rem",
     "5.1rem",
     "6rem",
     "6.8rem",

@@ -1,10 +1,15 @@
-import TwitterGE from "../../../images/twitter/vidLang-1.png"
-import TwitterBE from "../../../images/twitter/vidLang-2.png"
+import TwitterGE from "../../../images/twitter/video/vidLang-1.png";
+import TwitterBE from "../../../images/twitter/video/vidLang-2.png";
+import { ImgContainer } from "../styling";
 
 export const TwitterGoodExample = () => (
-  <img src={TwitterGE} alt="example of closed captions" />
+  <ImgContainer>
+    <img src={TwitterGE} alt="example of closed captions" />
+  </ImgContainer>
 );
 
 export const TwitterBadExample = () => (
-  <img src={TwitterBE} alt="example of closed captions" />
+  <ImgContainer>
+    <img src={TwitterBE} alt="example of closed captions" />
+  </ImgContainer>
 );

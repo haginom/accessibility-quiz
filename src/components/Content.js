@@ -5,6 +5,7 @@ const ContentButton = ({
   setIndex,
   value,
   setPlatform,
+  content,
   setContent,
   setSection,
   setPost,
@@ -36,7 +37,9 @@ const ContentButton = ({
     } else if (e.target.value === "goodbye") {
       setIndex(index + 1);
     } else {
+      setContent("");
       setContent(e.target.value);
+      console.log(content);
       setPost(renderSwitch(e.target.value));
       setSection("quiz");
       setIndex(0);

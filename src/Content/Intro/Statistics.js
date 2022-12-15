@@ -119,7 +119,7 @@ const Wrapper = styled.div(
       align-items: center;
       grid-template-columns: repeat(12, 1fr);
       grid-auto-rows: minmax(125px, auto);
-      grid-gap: 0.5rem;
+      grid-gap: 0.1rem;
       grid-template-areas:
       "hd hd hd hd hd hd hd hd hd hd hd hd"
       "main main main main main main main main img img img img"
@@ -143,7 +143,7 @@ const Header = styled.div`
 
 const Content = styled.div`
   grid-area: main;
-  margin-left: 2rem;
+  margin-left: 3rem;
   margin-bottom: 0.25rem;
   margin-top: 1rem;
   @media (max-width: 768px) {
@@ -162,6 +162,7 @@ const NavPanel = styled.div`
 const ImageContainer = styled.div`
   grid-area: img;
   margin-top: 1rem;
+  margin-left: 2rem;
 
   @media (max-width: 768px) {
     margin-left: 4rem;
@@ -177,9 +178,9 @@ const Img = styled.img`
 
 const Facts = styled.div`
   display: flex;
-  margin-top: 2rem;
+  gap: 1rem;
   > * {
-    flex: 0 1 27%;
+    flex: 0 1 26%;
     margin: 1rem 1rem 1rem 0rem;
   }
   @media (max-width: 768px) {
@@ -201,7 +202,7 @@ const Span = styled.span(
 
 const Text = styled.p(
   ({ theme, space }) => `
-  max-width: 680px;
+  max-width: 750px;
   font-size: ${theme.fontSizes[1]};
   line-height: ${theme.lineHeights.body};
   margin-bottom: 1rem;

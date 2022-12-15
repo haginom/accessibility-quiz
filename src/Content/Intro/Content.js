@@ -10,6 +10,7 @@ const Content = ({
   index,
   setIndex,
   platform,
+  content,  
   setContent,
   setSection,
   setPost,
@@ -38,6 +39,7 @@ const Content = ({
             setIndex={setIndex}
             setSection={setSection}
             setPost={setPost}
+            content={content}
             setContent={setContent}
             image={IconPhoto}
             value="photo"

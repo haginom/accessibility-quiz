@@ -14,6 +14,10 @@ import Hashtag from "./Content/Quiz/HashTag/hashtag";
 import ContentTwo from "./Content/Quiz/content";
 import { HelmetProvider } from "react-helmet-async";
 import Layout from "./Content/Layout";
+import "./index.css";
+import AltTxt from "./Content/Quiz/AltText/alttxt";
+import Descriptive from "./Content/Quiz/Descriptive/descriptive";
+import ScreenReader from "./Content/Quiz/ScreenReader/screenReader";
 
 const themesMap = {
   light,
@@ -94,6 +98,77 @@ function App() {
     <Goodbye />,
   ];
 
+  const imageComponents = [
+    <AltTxt
+      post={post}
+      platform={platform}
+      index={index}
+      setIndex={setIndex}
+    />,
+    <Descriptive index={index} setIndex={setIndex} />,
+    <VidLang
+      post={post}
+      platform={platform}
+      index={index}
+      setIndex={setIndex}
+    />,
+    <ScreenReader
+      post={post}
+      platform={platform}
+      index={index}
+      setIndex={setIndex}
+    />,
+    <Hashtag
+      post={post}
+      platform={platform}
+      index={index}
+      setIndex={setIndex}
+    />,
+    <ContentTwo
+      platform={platform}
+      content={content}
+      setContent={setContent}
+      setPlatform={setPlatform}
+      setSection={setSection}
+      index={index}
+      setIndex={setIndex}
+      setPost={setPost}
+    />,
+    <Goodbye />,
+  ];
+
+  const textComponents = [
+    <VidLang
+      post={post}
+      platform={platform}
+      index={index}
+      setIndex={setIndex}
+    />,
+    <ScreenReader
+      post={post}
+      platform={platform}
+      index={index}
+      setIndex={setIndex}
+    />,
+    <Hashtag
+      post={post}
+      platform={platform}
+      index={index}
+      setIndex={setIndex}
+    />,
+    <ContentTwo
+      platform={platform}
+      content={content}
+      setContent={setContent}
+      setPlatform={setPlatform}
+      setSection={setSection}
+      index={index}
+      setIndex={setIndex}
+      setPost={setPost}
+    />,
+    <Goodbye />,
+  ];
+
   return (
     <HelmetProvider>
       <ThemePreferenceContext.Provider
@@ -102,10 +177,15 @@ function App() {
         <ThemeProvider theme={theme}>
           <Layout currentTheme={currentTheme} setCurrentTheme={setCurrentTheme}>
             <GlobalStyles />
+            {console.log(section, content, index, "section and contet")}
             {section === "intro"
               ? introComponents[index]
-              : section === "quiz"
+              : section === "quiz" && content === "video"
               ? videoComponents[index]
+              : section === "quiz" && content === "photo"
+              ? imageComponents[index]
+              : section === "quiz" && content === "text"
+              ? textComponents[index]
               : null}
           </Layout>
         </ThemeProvider>
