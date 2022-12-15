@@ -14,30 +14,49 @@ export const LeftText = styled.p`
   margin-left: 2.6rem;
 `;
 
+export const TwoEqualColumns = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+`;
+
 export const TwoColumns = styled.div`
   display: flex;
   align-items: flex-start;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  max-width: 800px;
   > * {
     flex: 0 0 50%;
     margin: 0 2rem 0 2rem;
-    max-width: 400px;
+    max-width: 450px;
   }
 `;
 
 export const ImgContainer = styled.div`
   display: grid;
   justify-items: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 
   > img {
-    max-width: 520px;
+    max-width: 540px;
     width: 100%;
   }
 `;
+
+export const SocialMediaExample = ({ img, altText, link }) => {
+  return link != null ? (
+    <a href={link}>
+      <ImgContainer>
+        <img src={img} alt={altText} />
+      </ImgContainer>
+    </a>
+  ) : (
+    <ImgContainer>
+      <img src={img} alt={altText} />
+    </ImgContainer>
+  );
+};
 
 export const Section = styled.section`
   display: block;

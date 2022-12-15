@@ -26,6 +26,7 @@ const ContentButton = ({
   const handlePlatformChange = (e) => {
     e.preventDefault();
     setPlatform("");
+    setContent("");
     setSection("intro");
     setIndex(3);
   };
@@ -38,8 +39,8 @@ const ContentButton = ({
       setIndex(index + 1);
     } else {
       setContent("");
+      setSection("");
       setContent(e.target.value);
-      console.log(content);
       setPost(renderSwitch(e.target.value));
       setSection("quiz");
       setIndex(0);

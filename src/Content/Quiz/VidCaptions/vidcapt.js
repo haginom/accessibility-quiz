@@ -10,23 +10,22 @@ import YTOpenCapts from "../../../images/youtube/youtube2.png";
 import IgExample from "../../../images/instagram/video/insta1.png";
 import Examples from "./examples";
 import Button from "../../../components/Button";
-import { Section, StyledTitle, ButtonPanel, QuizHeaders } from "../styling";
-import Continue from "../../../components/Continue";
-import styled from "styled-components";
 import {
+  Section,
+  StyledTitle,
+  ButtonPanel,
+  QuizHeaders,
+  TwoEqualColumns,
   SocialMediaExample,
+} from "../styling";
+import Continue from "../../../components/Continue";
+import {
   TwitterInstructions,
   FacebookInstructions,
   InstagramInstructions,
   YouTubeInstructions,
   TikTokInstructions,
 } from "./links";
-
-const Flex = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 1rem;
-`;
 
 export const VidCapt = ({ index, setIndex, platform, post }) => {
   const [answer, setAnswer] = React.useState("");
@@ -84,18 +83,18 @@ const VidCaptQ = ({ setAnswer, answer, platform }) => {
         </p>
       )}
       {platform === "twitter" ? (
-        <Flex>
-          <SocialMediaExample
-            img={TwOpenCapts}
-            alt={"example of twitter open captions"}
-          />
+        <TwoEqualColumns>
           <SocialMediaExample
             img={TwClosedCapts}
             alt={"example of twitter open captions"}
           />
-        </Flex>
+          <SocialMediaExample
+            img={TwOpenCapts}
+            alt={"example of twitter open captions"}
+          />
+        </TwoEqualColumns>
       ) : platform === "facebook" ? (
-        <Flex>
+        <TwoEqualColumns>
           <SocialMediaExample
             img={FBOpenCapts}
             alt={"example of Facebook open captions"}
@@ -104,16 +103,16 @@ const VidCaptQ = ({ setAnswer, answer, platform }) => {
             img={FBClosedCapts}
             alt={"example of Facebook closed captions"}
           />
-        </Flex>
+        </TwoEqualColumns>
       ) : platform === "instagram" ? (
-        <Flex>
+        <TwoEqualColumns>
           <SocialMediaExample
             img={IgExample}
             alt={"example of Instagram captions"}
           />
-        </Flex>
+        </TwoEqualColumns>
       ) : platform === "youtube" ? (
-        <Flex>
+        <TwoEqualColumns>
           <SocialMediaExample
             img={YTOpenCapts}
             alt={"example of YouTube captions"}
@@ -122,9 +121,9 @@ const VidCaptQ = ({ setAnswer, answer, platform }) => {
             img={YTClosedCapts}
             alt={"example of YouTube captions"}
           />
-        </Flex>
+        </TwoEqualColumns>
       ) : platform === "tiktok" ? (
-        <Flex>
+        <TwoEqualColumns>
           <SocialMediaExample
             img={TTOpenCapts}
             alt={"example of YouTube captions"}
@@ -133,13 +132,19 @@ const VidCaptQ = ({ setAnswer, answer, platform }) => {
             img={TTClosedCapts}
             alt={"example of YouTube captions"}
           />
-        </Flex>
+        </TwoEqualColumns>
       ) : null}
       <p>
-        According to a 2019 study from Verizon Media and Publicis Media, 69% of
-        people watch videos without sound in public place. Even in private
-        places, one in every four watch videos without sound. So, if your
-        content doesn’t have captions, they’ll probably scroll on by.
+        According to{" "}
+        <a
+          className="link"
+          href="https://www.3playmedia.com/blog/verizon-media-and-publicis-media-find-viewers-want-captions/"
+        >
+          a 2019 study from Verizon Media and Publicis Media
+        </a>
+        , 69% of people watch videos without sound in public place. Even in
+        private places, one in every four watch videos without sound. So, if
+        your content doesn’t have captions, they’ll probably scroll on by.
       </p>
       <p>
         Now that you know more about captions and its benefits, does your video

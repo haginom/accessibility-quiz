@@ -26,18 +26,16 @@ export const Columns = styled.div(
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 2rem;
-    max-width: 1000px;
+    max-width: 1100px;
     margin-top: 2rem;
+    justify-items: center;
 
-    div:nth-of-type(1){
-      order:3;
-    }
-
-    img:nth-of-type(2){
+    a:nth-of-type(1){
       order: 2;
     }
-
-
+    a:nth-of-type(2){
+      order: 3;
+    }
   `
 );
 

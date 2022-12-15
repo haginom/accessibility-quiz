@@ -4,19 +4,17 @@ import YTGoodExample1 from "../../../images/youtube/youtube5.png";
 import YTGoodExample2 from "../../../images/youtube/youtube4.png";
 import IgAuto from "../../../images/instagram/video/insta4.png";
 
-export const SocialMediaExample = ({ img, altText }) => (
-  <ImgContainer>
-    <img src={img} alt={altText} />
-  </ImgContainer>
-);
-
 export const TwitterInstructions = () => (
   <>
     <p>
       Adding closed captions on Twitter is simple. When you upload a video,
       there will be an option to upload the caption file (.srt) below the video.
       Click on it and upload the correct file, and you’re done! If you are still
-      unsure, you can visit the Twitter Help page on adding captions to Tweetss.
+      unsure, you can visit
+      <a href="https://help.twitter.com/en/using-twitter/upload-caption-srt-file">
+        {" "}
+        the Twitter Help page on adding captions to Tweetss.
+      </a>
     </p>
     <p>
       Adding open captions is done while editing the actual video itself. The

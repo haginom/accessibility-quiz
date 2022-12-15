@@ -1,11 +1,9 @@
 import React from "react";
-import {
-  FacebookExample,
-  TwitterExample,
-  TwitterGoodExample,
-  DesText,
-  FacebookExample2,
-} from "./links";
+import TwitterExample from "../../../images/twitter/video/vidText-1.png";
+import FacebookExample from "../../../images/facebook/video/fb5.png";
+import TwitterGoodExample from "../../../images/twitter/video/vidText-2.png";
+import DescriptiveTextExample from "../../../images/twitter/video/vidText-3.png";
+import { FacebookExample2 } from "./links";
 import Button from "../../../components/Button";
 import {
   Section,
@@ -13,6 +11,7 @@ import {
   ButtonPanel,
   QuizHeaders,
   ImgContainer,
+  SocialMediaExample,
 } from "../styling";
 import Continue from "../../../components/Continue";
 import { Columns } from "../../../theme/extra";
@@ -31,8 +30,7 @@ const UnEqualColumns = styled.div(
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 
   div:first-child{
     flex: 0 0 60%;
@@ -60,7 +58,7 @@ export const VidText = ({ index, setIndex, platform, post }) => {
   const [answer, setAnswer] = React.useState("");
   return (
     <Section>
-      <StyledTitle>Descriptive</StyledTitle>
+      <StyledTitle>Descriptive Text</StyledTitle>
       {answer === "" ? (
         <VidTextQ platform={platform} answer={answer} setAnswer={setAnswer} />
       ) : answer === "yes" ? (
@@ -101,13 +99,16 @@ export const VidTextQ = ({ setAnswer, platform }) => {
         happening in your video or if your video simply doesn’t load for the
         user for whatever reason.
       </p>
-      <ImgContainer>
-        {platform === "twitter" ? (
-          <TwitterExample />
-        ) : platform === "facebook" ? (
-          <FacebookExample />
-        ) : null}
-      </ImgContainer>
+      {platform === "twitter" ? (
+        <SocialMediaExample
+          img={TwitterExample}
+          altText={
+            "A good example of a photo tweet that has an image description added so the content is accessible to more people."
+          }
+        />
+      ) : platform === "facebook" ? (
+        <SocialMediaExample img={FacebookExample} altText={"smoethig"} />
+      ) : null}
       <p className="mt-extra">
         Now that you know more about descriptive text and its benefits, does
         your video have descriptive text?
@@ -138,16 +139,16 @@ const No = ({ index, setIndex, setAnswer, platform, post }) => (
           Here is the original Tweet with the trailer (bonus: it has open
           captions!):
         </p>
-        <ImgContainer>
-          <TwitterGoodExample />
-        </ImgContainer>
+        <SocialMediaExample
+          img={TwitterGoodExample}
+          link="https://twitter.com/TheWheelOfTime/status/1475858812221280258"
+          alt="A good twitter example of descriptive text"
+        />
       </>
     ) : platform === "facebook" ? (
       <>
         <p>Here is the video on Facebook (bonus: it has closed captions!) </p>
-        <ImgContainer>
-          <FacebookExample2 />
-        </ImgContainer>
+        <SocialMediaExample img={FacebookExample2} />
       </>
     ) : null}
     <InlineText>
@@ -166,7 +167,13 @@ const No = ({ index, setIndex, setAnswer, platform, post }) => (
       read aloud, being too lengthy or wordy is not helpful.
     </InlineText>
     <UnEqualColumns>
-      {platform === "twitter" ? <DesText /> : null}
+      {platform === "twitter" ? (
+        <SocialMediaExample
+          img={DescriptiveTextExample}
+          link="https://twitter.com/TheWheelOfTime/status/1475858818533707779?s=20&t=RpyjPXodEcjMRLiN4BA9sw"
+          altText="The First Descriptive Text from this Tweet reads: Open on Logain in his cage as the Prime Video logo appears in front of him. The entire video is captioned with the words beig spoken. Cut to a closeup of Logain's face just before his cage explodes with his channeling, knocking Aes Sedai to the ground."
+        />
+      ) : null}
       <div>
         <p>
           A good way to test if the description is good or not is to get someone
@@ -184,7 +191,10 @@ const No = ({ index, setIndex, setAnswer, platform, post }) => (
     <p className="mt-extra">
       If you want to learn more about written descriptive text or other similar
       accommodations (like audio descriptions),{" "}
-      <a href="https://www.accessible-social.com/audio-and-video/video-descriptions">
+      <a
+        className="link"
+        href="https://www.accessible-social.com/audio-and-video/video-descriptions"
+      >
         this article gives a good overview of the various video descriptions
         available.
       </a>
@@ -212,26 +222,36 @@ const Yes = ({ index, setIndex, setAnswer, platform, post }) => {
           Here is the original {post} with the trailer (bonus: it has open
           captions!):
         </Text>
-        <ImgContainer>
-          {platform === "twitter" ? (
-            <TwitterGoodExample />
-          ) : platform === "facebook" ? (
-            <></>
-          ) : null}
-        </ImgContainer>
-
+        {platform === "twitter" ? (
+          <SocialMediaExample
+            img={TwitterGoodExample}
+            link="https://twitter.com/TheWheelOfTime/status/1475858812221280258"
+            alt="A good twitter example of descriptive text"
+          />
+        ) : platform === "facebook" ? (
+          <></>
+        ) : null}
         <Text>
           And this is the accompanying thread of {post}s that describes what’s
           happening in the trailer:
         </Text>
-        <ImgContainer>
-          <DesText />
-        </ImgContainer>
+        {platform === "twitter" ? (
+          <SocialMediaExample
+            img={DescriptiveTextExample}
+            link="https://twitter.com/TheWheelOfTime/status/1475858818533707779?s=20&t=RpyjPXodEcjMRLiN4BA9sw"
+            altText="The First Descriptive Text from this Tweet reads: Open on Logain in his cage as the Prime Video logo appears in front of him. The entire video is captioned with the words beig spoken. Cut to a closeup of Logain's face just before his cage explodes with his channeling, knocking Aes Sedai to the ground."
+          />
+        ) : platform === "facebook" ? (
+          <></>
+        ) : null}
       </Columns>
       <p>
         If you want to learn more about written descriptive text or other
         similar accommodations (like audio descriptions),{" "}
-        <a href="https://www.accessible-social.com/audio-and-video/video-descriptions">
+        <a
+          className="link"
+          href="https://www.accessible-social.com/audio-and-video/video-descriptions"
+        >
           this article gives a good overview of the various video descriptions
           available.
         </a>

@@ -9,6 +9,7 @@ import {
   StyledContainer,
   StyledText,
   StyledNB,
+  TwoEqualColumns,
 } from "../styling";
 import Continue from "../../../components/Continue";
 import { TwitterGoodExample, TwitterBadExample } from "./embedLinks";
@@ -70,10 +71,10 @@ const VidLangQ = ({ setAnswer }) => {
         your brand is doing? If so, you'll want to double check the language
         that you use.
       </p>
-      <TwoColumns>
+      <TwoEqualColumns>
         <TwitterGoodExample />
         <TwitterBadExample />
-      </TwoColumns>
+      </TwoEqualColumns>
       <p>
         Knowing this, do you think your video contains language about disabled
         people or disability? Are you confident that you are using the language
@@ -124,7 +125,7 @@ const Yes = ({ index, setIndex, setAnswer, platform }) => {
           community!
         </li>
       </ol>
-      <p>
+      <p className="mt-extra">
         If you’re looking for a more comprehensive list, check out{" "}
         <a href="https://www.autistichoya.com/p/ableist-words-and-terms-to-avoid.html">
           this list of ableist language that a disabled person compiled and

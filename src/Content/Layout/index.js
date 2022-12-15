@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const SLayout = styled.div`
   margin: 0 4rem 0 4rem;
+  max-width: 84rem;
   height: auto !important; /* real browsers */
   min-height: 100%; /* real browsers */
   @media (max-width: 768px) {

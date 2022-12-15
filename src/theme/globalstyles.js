@@ -54,6 +54,7 @@ export const GlobalStyles = createGlobalStyle(
     margin-bottom: 1rem;
     font-size:  ${fontSizes[2]};
     font-weight: 900;
+    margin-top: 2rem;
   }
   
   mt-m{
@@ -66,7 +67,7 @@ export const GlobalStyles = createGlobalStyle(
     margin-bottom: 1rem;
   }
 
-  a{
+  .link{
     border-bottom: .05em solid ${colors.primary};
     box-shadow: inset 0 -0.05em 0 ${colors.primary};
     color: inherit;
@@ -95,6 +96,7 @@ export const GlobalStyles = createGlobalStyle(
     margin-left:0; /* Remove the default left margin */
     padding-left:0; /* Remove the default left padding */
     line-height: 1.25;
+    margin-bottom: 2rem;
   }
   ol.large-numbers > p {
     font-size:  ${fontSizes[0]};
@@ -110,7 +112,7 @@ export const GlobalStyles = createGlobalStyle(
   }
 
   .mt-extra{
-    margin-top:2rem;
+    margin-top:4rem;
   }
   
  

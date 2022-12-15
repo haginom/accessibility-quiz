@@ -118,7 +118,7 @@ const Wrapper = styled.div(
       display: grid;
       align-items: center;
       grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: minmax(125px, auto);
+      grid-auto-rows: minmax(160px, auto);
       grid-gap: 0.1rem;
       grid-template-areas:
       "hd hd hd hd hd hd hd hd hd hd hd hd"
