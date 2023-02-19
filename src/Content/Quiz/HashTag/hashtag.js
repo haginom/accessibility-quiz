@@ -15,7 +15,6 @@ import Fb2 from "../../../images/facebook/video/fb9.png";
 import TikTokGE from "../../../images/tiktok/IMG_0982 1.png";
 import TikTokBE from "../../../images/tiktok/IMG_0984 1.png";
 import InstaGE from "../../../images/instagram/video/insta5.png";
-import InstaGE2 from "../../../images/instagram/video/insta6.png";
 import InstaBE from "../../../images/instagram/video/insta7.png";
 
 export const Hashtag = ({ index, setIndex, platform, post }) => {
