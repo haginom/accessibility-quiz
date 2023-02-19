@@ -7,6 +7,7 @@ import IconVideo from "../../images/intro/icon-video.png";
 import IconText from "../../images/intro/icon-text.png";
 
 const Content = ({
+  post,
   index,
   setIndex,
   platform,
@@ -15,7 +16,6 @@ const Content = ({
   setSection,
   setPost,
 }) => {
-  console.log(platform);
   return (
     <>
       <h1>What type of content are you creating?</h1>

@@ -115,6 +115,7 @@ export const StatsTwo = ({ index, setIndex }) => {
 
 const Wrapper = styled.div(
   ({ theme, colOne, colTwo }) => `
+      justify-items: center;
       display: grid;
       align-items: center;
       grid-template-columns: repeat(12, 1fr);
@@ -126,10 +127,13 @@ const Wrapper = styled.div(
       ". . nav nav nav nav . . . . . .";
 
       @media (max-width: 768px){
+        justify-items: center;
+
         grid-template-columns: repeat(3, 1fr);
         grid-auto-rows: minmax(25px, auto);
         grid-template-areas:
           "hd hd hd"
+
           "main main main"
           "img img img"
           "nav nav nav"
@@ -148,6 +152,7 @@ const Content = styled.div`
   margin-top: 1rem;
   @media (max-width: 768px) {
     margin-top: 1rem;
+    margin-left: 1rem;
   }
 `;
 const NavPanel = styled.div`

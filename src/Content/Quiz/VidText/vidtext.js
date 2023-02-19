@@ -1,16 +1,16 @@
 import React from "react";
-import TwitterExample from "../../../images/twitter/video/vidText-1.png";
-import FacebookExample from "../../../images/facebook/video/fb5.png";
-import TwitterGoodExample from "../../../images/twitter/video/vidText-2.png";
-import DescriptiveTextExample from "../../../images/twitter/video/vidText-3.png";
-import { FacebookExample2 } from "./links";
+import Tw1 from "../../../images/twitter/video/vidText-1.png";
+import Tw2 from "../../../images/twitter/video/vidText-2.png";
+import Tw3 from "../../../images/twitter/video/vidText-3.png";
+import Fb1 from "../../../images/facebook/video/fb5.png";
+import Fb2 from "../../../images/facebook/video/fb6.png";
+import Fb3 from "../../../images/facebook/video/fb7.png";
 import Button from "../../../components/Button";
 import {
   Section,
   StyledTitle,
   ButtonPanel,
   QuizHeaders,
-  ImgContainer,
   SocialMediaExample,
 } from "../styling";
 import Continue from "../../../components/Continue";
@@ -58,7 +58,7 @@ export const VidText = ({ index, setIndex, platform, post }) => {
   const [answer, setAnswer] = React.useState("");
   return (
     <Section>
-      <StyledTitle>Descriptive Text</StyledTitle>
+      <StyledTitle>Descriptive</StyledTitle>
       {answer === "" ? (
         <VidTextQ platform={platform} answer={answer} setAnswer={setAnswer} />
       ) : answer === "yes" ? (
@@ -101,13 +101,17 @@ export const VidTextQ = ({ setAnswer, platform }) => {
       </p>
       {platform === "twitter" ? (
         <SocialMediaExample
-          img={TwitterExample}
+          img={Tw1}
           altText={
             "A good example of a photo tweet that has an image description added so the content is accessible to more people."
           }
         />
       ) : platform === "facebook" ? (
-        <SocialMediaExample img={FacebookExample} altText={"smoethig"} />
+        <SocialMediaExample
+          idName="mw-none"
+          img={Fb1}
+          altText={"A facebook example of descriptive text"}
+        />
       ) : null}
       <p className="mt-extra">
         Now that you know more about descriptive text and its benefits, does
@@ -140,7 +144,7 @@ const No = ({ index, setIndex, setAnswer, platform, post }) => (
           captions!):
         </p>
         <SocialMediaExample
-          img={TwitterGoodExample}
+          img={Tw2}
           link="https://twitter.com/TheWheelOfTime/status/1475858812221280258"
           alt="A good twitter example of descriptive text"
         />
@@ -148,7 +152,10 @@ const No = ({ index, setIndex, setAnswer, platform, post }) => (
     ) : platform === "facebook" ? (
       <>
         <p>Here is the video on Facebook (bonus: it has closed captions!) </p>
-        <SocialMediaExample img={FacebookExample2} />
+        <SocialMediaExample
+          img={Fb3}
+          link="https://www.facebook.com/watch/?v=1189681685124452&ref=sharing"
+        />
       </>
     ) : null}
     <InlineText>
@@ -166,16 +173,29 @@ const No = ({ index, setIndex, setAnswer, platform, post }) => (
       You only need to describe the most important details. Since this will be
       read aloud, being too lengthy or wordy is not helpful.
     </InlineText>
-    <UnEqualColumns>
-      {platform === "twitter" ? (
+    {platform === "twitter" ? (
+      <UnEqualColumns>
         <SocialMediaExample
-          img={DescriptiveTextExample}
+          img={Tw3}
           link="https://twitter.com/TheWheelOfTime/status/1475858818533707779?s=20&t=RpyjPXodEcjMRLiN4BA9sw"
           altText="The First Descriptive Text from this Tweet reads: Open on Logain in his cage as the Prime Video logo appears in front of him. The entire video is captioned with the words beig spoken. Cut to a closeup of Logain's face just before his cage explodes with his channeling, knocking Aes Sedai to the ground."
         />
-      ) : null}
-      <div>
-        <p>
+        <div>
+          <p>
+            A good way to test if the description is good or not is to get
+            someone to read it aloud, close your eyes, and see if the text still
+            is able to convey the most crucial scenes of the video well.
+          </p>
+          <p>
+            In addition, avoid any emojis or emoticons in your descriptive text.
+            It doesn’t translate well through screen readers or text-to-speech
+            programs.
+          </p>
+        </div>
+      </UnEqualColumns>
+    ) : (
+      <>
+        <p className="mt-small">
           A good way to test if the description is good or not is to get someone
           to read it aloud, close your eyes, and see if the text still is able
           to convey the most crucial scenes of the video well.
@@ -185,14 +205,21 @@ const No = ({ index, setIndex, setAnswer, platform, post }) => (
           It doesn’t translate well through screen readers or text-to-speech
           programs.
         </p>
-      </div>
-    </UnEqualColumns>
+        <SocialMediaExample
+          idName="mw-none"
+          img={Fb1}
+          alt="The Wheel of Time Video with DESCRIPTIVE TEXT: Behind the scenes footage from the set of season two including shots of cast and crew at a table read, talent in character filming on set, artists working on sculpts, actors ride on horses in the desert and a stuntman being flipped ov.."
+        />
+      </>
+    )}
     {platform === "facebook" ? <></> : null}
     <p className="mt-extra">
       If you want to learn more about written descriptive text or other similar
       accommodations (like audio descriptions),{" "}
       <a
         className="link"
+        target="_blank"
+        rel="noopener noreferrer"
         href="https://www.accessible-social.com/audio-and-video/video-descriptions"
       >
         this article gives a good overview of the various video descriptions
@@ -217,34 +244,35 @@ const Yes = ({ index, setIndex, setAnswer, platform, post }) => {
         {platform} can look like! If your descriptive text looks similar to the
         example below, you’re set!
       </p>
-      <Columns>
-        <Text>
-          Here is the original {post} with the trailer (bonus: it has open
-          captions!):
-        </Text>
-        {platform === "twitter" ? (
+
+      {platform === "twitter" ? (
+        <Columns>
+          <Text>
+            Here is the original {post} with the trailer (bonus: it has open
+            captions!):
+          </Text>
           <SocialMediaExample
-            img={TwitterGoodExample}
+            img={Tw2}
             link="https://twitter.com/TheWheelOfTime/status/1475858812221280258"
             alt="A good twitter example of descriptive text"
           />
-        ) : platform === "facebook" ? (
-          <></>
-        ) : null}
-        <Text>
-          And this is the accompanying thread of {post}s that describes what’s
-          happening in the trailer:
-        </Text>
-        {platform === "twitter" ? (
+          <Text>
+            And this is the accompanying thread of {post}s that describes what’s
+            happening in the trailer:
+          </Text>
           <SocialMediaExample
-            img={DescriptiveTextExample}
+            img={Tw3}
             link="https://twitter.com/TheWheelOfTime/status/1475858818533707779?s=20&t=RpyjPXodEcjMRLiN4BA9sw"
             altText="The First Descriptive Text from this Tweet reads: Open on Logain in his cage as the Prime Video logo appears in front of him. The entire video is captioned with the words beig spoken. Cut to a closeup of Logain's face just before his cage explodes with his channeling, knocking Aes Sedai to the ground."
           />
-        ) : platform === "facebook" ? (
-          <></>
-        ) : null}
-      </Columns>
+        </Columns>
+      ) : platform === "facebook" ? (
+        <SocialMediaExample
+          img={Fb2}
+          link="https://www.facebook.com/watch/?v=1189681685124452&ref=sharing"
+        />
+      ) : null}
+
       <p>
         If you want to learn more about written descriptive text or other
         similar accommodations (like audio descriptions),{" "}

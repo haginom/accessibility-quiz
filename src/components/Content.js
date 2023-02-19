@@ -12,16 +12,16 @@ const ContentButton = ({
   children,
   image,
 }) => {
-  const renderSwitch = (param) => {
-    switch (param) {
-      case "twitter":
-        return "tweet";
-      case "facebook":
-        return "facebook post";
-      default:
-        return param;
-    }
-  };
+  // const renderSwitch = (param) => {
+  //   switch (param) {
+  //     case "twitter":
+  //       return "tweet";
+  //     case "facebook":
+  //       return "facebook post";
+  //     default:
+  //       return param;
+  //   }
+  // };
 
   const handlePlatformChange = (e) => {
     e.preventDefault();
@@ -41,7 +41,6 @@ const ContentButton = ({
       setContent("");
       setSection("");
       setContent(e.target.value);
-      setPost(renderSwitch(e.target.value));
       setSection("quiz");
       setIndex(0);
     }
@@ -66,6 +65,10 @@ const StyledImg = styled.img`
   margin-right: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    max-height: 40px;
+  }
 `;
 
 const StyledButton = styled.button(
@@ -84,8 +87,9 @@ const StyledButton = styled.button(
   min-width: 12rem;
 
   @media (max-width: 768px){
-    margin:  ${theme.space[3]} ${theme.space[1]};
-  }
+    margin:  0.5rem;
+    padding: ${theme.space[2]} ${theme.space[2]};  
+  
 `
 );
 

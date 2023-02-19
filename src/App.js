@@ -43,7 +43,13 @@ function App() {
   };
 
   const introComponents = [
-    <Welcome index={index} setIndex={setIndex} />,
+    <Welcome
+      index={index}
+      setIndex={setIndex}
+      setPlatform={setPlatform}
+      setPost={setPost}
+      setContent={setContent}
+    />,
     <StatsOne index={index} setIndex={setIndex} />,
     <StatsTwo index={index} setIndex={setIndex} />,
     <Platform
@@ -51,6 +57,7 @@ function App() {
       setPlatform={setPlatform}
       index={index}
       setIndex={setIndex}
+      setPost={setPost}
     />,
     <Content
       platform={platform}
@@ -66,6 +73,7 @@ function App() {
 
   const videoComponents = [
     <VidCapt
+      content={content}
       post={post}
       platform={platform}
       index={index}
@@ -77,7 +85,13 @@ function App() {
       index={index}
       setIndex={setIndex}
     />,
-    <VidLang platform={platform} index={index} setIndex={setIndex} />,
+    <VidLang
+      platform={platform}
+      index={index}
+      setIndex={setIndex}
+      content={content}
+      post={post}
+    />,
     <Hashtag
       post={post}
       platform={platform}
@@ -111,6 +125,7 @@ function App() {
       platform={platform}
       index={index}
       setIndex={setIndex}
+      content={content}
     />,
     <ScreenReader
       post={post}
@@ -143,6 +158,7 @@ function App() {
       platform={platform}
       index={index}
       setIndex={setIndex}
+      content={content}
     />,
     <ScreenReader
       post={post}
@@ -177,7 +193,6 @@ function App() {
         <ThemeProvider theme={theme}>
           <Layout currentTheme={currentTheme} setCurrentTheme={setCurrentTheme}>
             <GlobalStyles />
-            {console.log(section, content, index, "section and contet")}
             {section === "intro"
               ? introComponents[index]
               : section === "quiz" && content === "video"

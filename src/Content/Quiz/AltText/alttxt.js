@@ -4,6 +4,7 @@ import { Section, StyledTitle, ButtonPanel, QuizHeaders } from "../styling";
 import Continue from "../../../components/Continue";
 import {
   FacebookAltText,
+  FacebookHowTo,
   InstagramAltText,
   TwitterAltText,
   TwitterHowTo,
@@ -11,7 +12,6 @@ import {
 
 export const AltTxt = ({ platform, post, index, setIndex }) => {
   const [answer, setAnswer] = React.useState("");
-  console.log(platform, post, "platform and post");
   return (
     <Section>
       <StyledTitle>Alt Text</StyledTitle>
@@ -153,7 +153,7 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
         So, now you know how to add alt text, but how do we write great and
         helpful alt text? Here are a few things to keep in mind:
       </p>
-      <ol className="large-numbers">
+      <ol>
         <li>
           Capture what’s important - Don’t get hung up on every little details.
           Think to yourself what part of the image is vital for your audience to
@@ -179,13 +179,26 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
           be a bit creative, just don’t go overboard.
         </li>
       </ol>
-      {platform === "twitter" ? <TwitterHowTo /> : null}
-      <Continue
-        pages={1}
-        index={index}
-        setIndex={setIndex}
-        setAnswer={setAnswer}
-      />{" "}
+      {platform === "twitter" ? (
+        <TwitterHowTo />
+      ) : platform === "facebook" ? (
+        <FacebookHowTo />
+      ) : null}
+      {platform === "instagram" ? (
+        <Continue
+          pages={1}
+          index={index}
+          setIndex={setIndex}
+          setAnswer={setAnswer}
+        />
+      ) : (
+        <Continue
+          pages={2}
+          index={index}
+          setIndex={setIndex}
+          setAnswer={setAnswer}
+        />
+      )}
     </>
   );
 };

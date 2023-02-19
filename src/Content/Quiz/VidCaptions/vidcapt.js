@@ -3,8 +3,8 @@ import TwClosedCapts from "../../../images/twitter/video/vidCapts.png";
 import TwOpenCapts from "../../../images/twitter/video/vidCapts-2.png";
 import TTOpenCapts from "../../../images/tiktok/IMG_0974 1.png";
 import TTClosedCapts from "../../../images/tiktok/IMG_0980 1.png";
-import FBOpenCapts from "../../../images/facebook/video/fb1.png";
-import FBClosedCapts from "../../../images/facebook/video/fb2.png";
+import FBClosedCapts from "../../../images/facebook/video/fb1.png";
+import FBOpenCapts from "../../../images/facebook/video/fb2.png";
 import YTClosedCapts from "../../../images/youtube/youtube1.png";
 import YTOpenCapts from "../../../images/youtube/youtube2.png";
 import IgExample from "../../../images/instagram/video/insta1.png";
@@ -27,7 +27,9 @@ import {
   TikTokInstructions,
 } from "./links";
 
-export const VidCapt = ({ index, setIndex, platform, post }) => {
+export const VidCapt = ({ index, setIndex, platform, post, content }) => {
+  console.log(platform, post, content, "platform, content and post");
+
   const [answer, setAnswer] = React.useState("");
   return (
     <Section>
@@ -97,11 +99,13 @@ const VidCaptQ = ({ setAnswer, answer, platform }) => {
         <TwoEqualColumns>
           <SocialMediaExample
             img={FBOpenCapts}
-            alt={"example of Facebook open captions"}
+            alt={"a Disney Facebook post with open captions 'no woman no cry'"}
           />
           <SocialMediaExample
             img={FBClosedCapts}
-            alt={"example of Facebook closed captions"}
+            alt={
+              "a Disney closed captions with captions reading 'As somebody who's a huge lover of entertainment...'"
+            }
           />
         </TwoEqualColumns>
       ) : platform === "instagram" ? (
@@ -138,6 +142,8 @@ const VidCaptQ = ({ setAnswer, answer, platform }) => {
         According to{" "}
         <a
           className="link"
+          target="_blank"
+          rel="noopener noreferrer"
           href="https://www.3playmedia.com/blog/verizon-media-and-publicis-media-find-viewers-want-captions/"
         >
           a 2019 study from Verizon Media and Publicis Media
@@ -197,6 +203,9 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
       <p>
         Unless you're posting a video with absolutely zero sound, you should
         have captions (closed or open) with your videos.
+        {platform === "instagram"
+          ? ` Instagram currently has limited capabilities for closed captions, so we strongly recommend adding open captions to your videos.`
+          : null}
       </p>
       {platform === "twitter" ? (
         <>
@@ -227,7 +236,7 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
         So, now you know how to add captions, but how do we write great
         captions? Here are a few things to keep in mind:
       </p>
-      <ol className="large-numbers">
+      <ol>
         <li>
           Readability - Take into consideration the size, color, background,
           font, and case of your captions.

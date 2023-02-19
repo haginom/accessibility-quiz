@@ -83,11 +83,10 @@ const Yes = ({ index, setIndex, setAnswer, platform, answer }) => {
         generators). And try to avoid doing memes with ASCII art (or provide a
         description in the photo caption or comments).
       </p>
-      {console.log(platform)}
       {platform === "twitter" ? (
         <TwitterExamples />
       ) : platform === "facebook" ? (
-        <FacebookExamples />
+        <FacebookExamples answer={answer} />
       ) : platform === "instagram" ? (
         <InstagramExamples answer={answer} />
       ) : null}
@@ -112,32 +111,51 @@ const No = ({ index, setIndex, setAnswer, platform, answer }) => {
       </p>
       <p>
         For PCs: Download{" "}
-        <a href="https://www.nvaccess.org/download/">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.nvaccess.org/download/"
+        >
           NVDA (Non-Visual Desktop Access)
         </a>
       </p>
       <p>
         For Apple:{" "}
-        <a href="https://www.apple.com/accessibility/vision/">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.apple.com/accessibility/vision/"
+        >
           VoiceOver is already built in
         </a>{" "}
         and can be turned on in Accessibility settings.
       </p>
       <p>
         Also, if you use Chrome as your browser, you can get get{" "}
-        <a href="https://chrome.google.com/webstore/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://chrome.google.com/webstore/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en"
+        >
           the ChromeVox extension.
         </a>
       </p>
       <p>
         In general, most computers and phones have an option to turn text into
         speech (you can highlight the text and select the "Speech" option) or
-        you can use <a href="https://ttsreader.com/">this TTS website.</a>
+        you can use{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://ttsreader.com/"
+        >
+          this TTS website.
+        </a>
       </p>
       {platform === "twitter" ? (
         <TwitterExamples />
       ) : platform === "facebook" ? (
-        <FacebookExamples />
+        <FacebookExamples answer={answer} />
       ) : platform === "instagram" ? (
         <InstagramExamples answer={answer} />
       ) : null}

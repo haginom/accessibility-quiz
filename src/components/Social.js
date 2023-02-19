@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const SocialButton = ({
+  setPost,
   setPlatform,
   index,
   setIndex,
@@ -8,10 +9,22 @@ const SocialButton = ({
   image,
   children,
 }) => {
+  const renderSwitch = (param) => {
+    switch (param) {
+      case "twitter":
+        return "tweet";
+      case "facebook":
+        return "post";
+      default:
+        return param;
+    }
+  };
   const handleClick = (e) => {
     e.preventDefault();
     setPlatform("");
     setPlatform(e.target.value);
+    setPost("");
+    setPost(renderSwitch(e.target.value));
     setIndex(index + 1);
   };
   return (
@@ -33,6 +46,10 @@ const StyledImg = styled.img`
   margin-right: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    max-height: 40px;
+  }
 `;
 
 const StyledButton = styled.button(
@@ -51,8 +68,8 @@ const StyledButton = styled.button(
   min-width: 12rem;
 
   @media (max-width: 768px){
-    margin:  ${theme.space[3]} ${theme.space[1]};
-  }
+    margin: 0.5rem;
+    padding: ${theme.space[2]} ${theme.space[3]};  }
 `
 );
 

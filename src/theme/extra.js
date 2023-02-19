@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Heading = styled.h1(
   ({ theme }) => `
+    margin-top: 2rem;
     font-size:  ${theme.fontSizes[6]};
 
     @media (max-width: 768px){
@@ -51,9 +52,9 @@ export const ContainerThree = styled.div(
 }
 
     @media (max-width: 768px){
-      grid-template-columns: repeat(auto-fill, 320px);
+      grid-template-columns: repeat(auto-fill, 220px);
       grid-gap: 0rem;
-      margin-top: 0.5rem;
+      margin-top: 2rem;
       justify-content: center;
     }
   `
@@ -67,9 +68,9 @@ export const ContainerFive = styled.div(
 
 
     @media (max-width: 768px){
-      grid-template-columns: repeat(auto-fill, 320px);
+      grid-template-columns: repeat(auto-fill, 220px);
       grid-gap: 0rem;
-      margin-top: 0.5rem;
+      margin-top: 2rem;
       justify-content: center;
     }
   `

@@ -4,20 +4,19 @@ import {
   StyledTitle,
   ButtonPanel,
   QuizHeaders,
-  ImgContainer,
+  SocialMediaExample,
 } from "../styling";
 import Continue from "../../../components/Continue";
 import Button from "../../../components/Button";
-import {
-  InstaBadExample,
-  InstaGoodExample,
-  InstaGoodExample2,
-  TikTokBadExample,
-  TikTokGoodExample,
-  TikTokInstructions,
-  TwitterBadExample,
-  TwitterGoodExample,
-} from "./links";
+import TwitterBE from "../../../images/twitter/video/hashtag-1.png";
+import TwitterGE from "../../../images/twitter/video/hashtag-2.png";
+import Fb1 from "../../../images/facebook/video/fb8.png";
+import Fb2 from "../../../images/facebook/video/fb9.png";
+import TikTokGE from "../../../images/tiktok/IMG_0982 1.png";
+import TikTokBE from "../../../images/tiktok/IMG_0984 1.png";
+import InstaGE from "../../../images/instagram/video/insta5.png";
+import InstaGE2 from "../../../images/instagram/video/insta6.png";
+import InstaBE from "../../../images/instagram/video/insta7.png";
 
 export const Hashtag = ({ index, setIndex, platform, post }) => {
   const [answer, setAnswer] = React.useState("");
@@ -85,29 +84,39 @@ const Yes = ({ index, setIndex, post, platform, setAnswer }) => {
       <p>
         Just to double check, your hashtags should look something like the
         following{" "}
-        {platform === "twitter" ? (
-          <>Disney {post} about Disability Pride Month:</>
-        ) : platform === "tiktok" ? (
-          <>Tiktok from Netflix promoting a show:</>
-        ) : platform === "instagram" ? (
-          <>Disney+ post about an upcoming show:</>
-        ) : null}
+        {platform === "twitter"
+          ? `Disney {post} about Disability Pride Month:`
+          : platform === "facebook"
+          ? `Facebook post made by The Wheel of Time to highlight a character for World Storytelling Day.`
+          : platform === "tiktok"
+          ? `Tiktok from Netflix promoting a show:`
+          : platform === "instagram"
+          ? `Disney+ post about an upcoming show:`
+          : null}
       </p>
-      <ImgContainer>
-        {platform === "twitter" ? (
-          <>
-            <TwitterGoodExample />
-          </>
-        ) : platform === "tiktok" ? (
-          <>
-            <TikTokGoodExample />
-          </>
-        ) : platform === "instagram" ? (
-          <>
-            <InstaGoodExample />
-          </>
-        ) : null}
-      </ImgContainer>
+      {platform === "twitter" ? (
+        <>
+          <SocialMediaExample
+            img={TwitterGE}
+            link="https://twitter.com/Disney/status/1552005843490639873?s=20&t=HONcEcZCqBqJjfuoJsLocg"
+          />
+        </>
+      ) : platform === "facebook" ? (
+        <>
+          <SocialMediaExample
+            img={Fb1}
+            link="https://www.facebook.com/watch/?v=962435564411321&ref=sharing"
+          />
+        </>
+      ) : platform === "tiktok" ? (
+        <>
+          <SocialMediaExample img={TikTokGE} />
+        </>
+      ) : platform === "instagram" ? (
+        <>
+          <SocialMediaExample img={InstaGE} />
+        </>
+      ) : null}
       <Continue
         pages={1}
         index={index}
@@ -127,85 +136,130 @@ const No = ({ index, setIndex, post, platform, setAnswer }) => {
         your {post}’s accessibility to users.
       </p>
       {platform === "twitter" ? (
-        <p>
-          What we’re trying to avoid are bad hashtags caused by misreading where
-          one word stops and begins. Like the infamous Susan Boyle’s album party
-          hashtag as seen{" "}
-          <a href="https://twitter.com/Disney/status/1552005843490639873?s=20&t=HONcEcZCqBqJjfuoJsLocg">
-            in George Takei’s Tweet.{" "}
-          </a>
-        </p>
-      ) : (
-        <p>
-          What we're trying to avoid is leaving people confused when they read
-          the hashtag.{" "}
-        </p>
-      )}
-      <ImgContainer>
-        {platform === "tiktok" ? (
-          <>
-            <TikTokInstructions />
-            <TikTokBadExample />
-          </>
-        ) : platform === "twitter" ? (
-          <>
-            <TwitterBadExample />
-          </>
-        ) : platform === "instagram" ? (
-          <>
-            <InstaGoodExample2 />
-          </>
-        ) : null}
-      </ImgContainer>
+        <>
+          <p>
+            What we’re trying to avoid are bad hashtags caused by misreading
+            where one word stops and begins. Like the infamous Susan Boyle’s
+            album party hashtag as seen in George Takei’s Tweet.{" "}
+          </p>
+          <SocialMediaExample
+            img={TwitterBE}
+            alt="Tweet reads `Susan Doyle's PR for her new album could use a second pair of eyes, given the hashtag. Oh myyy. #Susanalbumparty'"
+            link="https://twitter.com/GeorgeTakei/status/272831169559674880?s=20&t=LEc6F75ZetPEcU0JLoz-og"
+          />
+        </>
+      ) : platform === "facebook" ? (
+        <>
+          <p>
+            What we’re trying to avoid are bad hashtags caused by misreading
+            where one word stops and begins. Like this McDonald’s post where it
+            looks like it could be saying McDonald Shacks instead of McDonald's
+            Hacks.
+          </p>
+          <SocialMediaExample
+            img={Fb2}
+            alt="Tweet"
+            link="https://www.facebook.com/watch/?v=4914925538530902&ref=sharing"
+          />
+        </>
+      ) : platform === "instagram" ? (
+        <>
+          <p>
+            What we’re trying to avoid are bad hashtags caused by misreading
+            where one word stops and begins.{" "}
+          </p>
+          <p>
+            Like the Teen Vogue post where it looks like it could be saying PLL
+            Originals In, instead of PLL Original Sin.
+          </p>
+          <SocialMediaExample img={InstaBE} />
+        </>
+      ) : platform === "tiktok" ? (
+        <>
+          <p>
+            What we're trying to avoid is leaving people confused when they read
+            the hashtag.
+          </p>
+          <p>
+            The TikTok made by Playstation doesn’t utilize camel case - which is
+            fine if you are only using hashtags with only one word like PS4 or
+            PS5.
+          </p>
+          <p>
+            But if you didn't know the game, you might not know the hashtag is
+            trying to tell you the game is Ghost of Tsushima. If they used camel
+            case, the guesswork would be removed.
+          </p>
+          <p>Also, capitalizing the PLL would help too!</p>
+          <SocialMediaExample img={TikTokBE} />
+        </>
+      ) : null}
+
       <p>
         And instead, we're looking for hashtags (especially longer ones like{" "}
         {platform === "tiktok" ? (
-          <>this really long Netflix show title)</>
+          `this really long Netflix show title)`
+        ) : platform === "facebook" ? (
+          `the post shown below`
         ) : platform === "twitter" ? (
-          <a href="https://twitter.com/Disney/status/1552005843490639873?s=20&t=HONcEcZCqBqJjfuoJsLocg">
-            the Disney {post} shown below.)
-          </a>
+          `the Disney tweet shown below)`
         ) : platform === "instagram" ? (
           <>this show's)</>
         ) : null}{" "}
-        that are easier to read.
+        that are easier to read. By capitalizing the first word in each word in
+        the hashtag, we make it clear what the hashtag says.
       </p>
-      <p>
-        By capitalizing the first word in each word in the hashtag, we make it
-        clear what the hashtag says.
-      </p>
-      <ImgContainer>
-        {platform === "tiktok" ? (
-          <>
-            <TikTokGoodExample />
-          </>
-        ) : platform === "twitter" ? (
-          <>
-            <TwitterGoodExample />
-          </>
-        ) : platform === "instagram" ? (
-          <>
-            <InstaBadExample />
-          </>
-        ) : null}
-      </ImgContainer>
-      <p>You can even test it for yourself - compare how you read</p>
-      <p>#TheMostHatedManOnTheInternet</p>
-      <p>vs. how you read</p>
-      <p>#themosthantedmanontheinternet. </p>
-      <p>
-        Camel case makes it easier, right? So, be sure that your hashtags are
-        accessible!
-      </p>
+
+      {platform === "tiktok" ? (
+        <SocialMediaExample img={TikTokGE} />
+      ) : platform === "facebook" ? (
+        <SocialMediaExample
+          img={Fb1}
+          link="https://www.facebook.com/watch/?v=962435564411321&ref=sharing"
+        />
+      ) : platform === "twitter" ? (
+        <>
+          <SocialMediaExample
+            img={TwitterGE}
+            alt="twitter"
+            link="https://twitter.com/Disney/status/1552005843490639873?s=20&t=HONcEcZCqBqJjfuoJsLocg"
+          />
+        </>
+      ) : null}
       {platform === "twitter" ? (
         <>
           <p>
-            (Note: the Disney example {post} is a good example of having good
+            You can even test it for yourself - compare how you read
+            #ReimagineTomorrowTogether versus how you read
+            #reimaginetomorrowtogether. Camel case makes it easier, right? So,
+            be sure that your hashtags are accessible!
+          </p>
+          <p className="italic">
+            (Note: the Disney example tweet is a good example of having good
             hashtags, but the attached photos do not have alt text, so please
             keep that in mind.)
           </p>
         </>
-      ) : null}
+      ) : platform === "facebook" ? (
+        <p>
+          You can even test it for yourself - compare how you read
+          #WorldStorytellingDay versus how you read #worldstorytellingday. Camel
+          case makes it easier, right? So, be sure that your hashtags are
+          accessible!
+        </p>
+      ) : (
+        <>
+          {" "}
+          <p>You can even test it for yourself - compare how you read</p>
+          <p>#TheMostHatedManOnTheInternet</p>
+          <p>vs. how you read</p>
+          <p>#themosthantedmanontheinternet. </p>
+          <p>
+            Camel case makes it easier, right? So, be sure that your hashtags
+            are accessible!
+          </p>
+        </>
+      )}
 
       <Continue
         pages={1}

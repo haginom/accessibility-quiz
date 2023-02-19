@@ -1,4 +1,10 @@
-import { ImgContainer, LinkContainer, StyledLink } from "../styling";
+import {
+  ImgContainer,
+  LinkContainer,
+  SocialMediaExample,
+  StyledLink,
+  TwoColumns,
+} from "../styling";
 import YTBadExample from "../../../images/youtube/youtube3.png";
 import YTGoodExample1 from "../../../images/youtube/youtube5.png";
 import YTGoodExample2 from "../../../images/youtube/youtube4.png";
@@ -11,9 +17,13 @@ export const TwitterInstructions = () => (
       there will be an option to upload the caption file (.srt) below the video.
       Click on it and upload the correct file, and you’re done! If you are still
       unsure, you can visit
-      <a href="https://help.twitter.com/en/using-twitter/upload-caption-srt-file">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://help.twitter.com/en/using-twitter/upload-caption-srt-file"
+      >
         {" "}
-        the Twitter Help page on adding captions to Tweetss.
+        the Twitter Help page on adding captions to Tweets.
       </a>
     </p>
     <p>
@@ -37,7 +47,7 @@ export const FacebookInstructions = () => (
         <p>How to add closed captions to a video from your Facebook Page </p>
       </StyledLink>
     </LinkContainer>
-    <p>
+    <p className="mt-normal">
       Adding open captions is done while editing the actual video itself. Open
       captions are directly embedded on the video. You cannot add open captions
       through Facebook.
@@ -46,21 +56,28 @@ export const FacebookInstructions = () => (
 );
 export const InstagramInstructions = () => (
   <>
-    <p>
-      As mentioned earlier, Instagram doesn't have an option to upload your own
-      closed captions, it only offers auto-generated closed captions.{" "}
-    </p>
-    <p>
-      If you want to learn more about how to access this, you can read
-      Instagram’s article on watching a Reel with their auto-generated captions.
-    </p>
-    <p>
-      Otherwise, we do not recommend settling for Instagram’s auto-generated
-      captions.
-    </p>
-    <ImgContainer>
-      <img src={IgAuto} alt="example of closed captions" />
-    </ImgContainer>
+    <TwoColumns>
+      <div className="align-end">
+        <p>
+          As mentioned earlier, Instagram doesn't have an option to upload your
+          own closed captions, it only offers auto-generated closed captions.{" "}
+        </p>
+        <p>
+          If you want to learn more about how to access this, you can read
+          Instagram’s article on watching a Reel with their auto-generated
+          captions.
+        </p>
+        <p>
+          Otherwise, we do not recommend settling for Instagram’s auto-generated
+          captions.
+        </p>
+      </div>
+      <SocialMediaExample
+        img={IgAuto}
+        alt="instagram example of auto-generated closed captions"
+        link="https://help.instagram.com/225479678901832"
+      />
+    </TwoColumns>
     <p>
       While their auto-generated captions are better than no captions, you
       should consider adding open captions to your Reels. It’ll be more accurate

@@ -47,6 +47,7 @@ export const GlobalStyles = createGlobalStyle(
 
     @media (max-width: 768px){
       font-size:  ${fontSizes[4]};
+      margin-left: 1rem;
     }
   }
 
@@ -90,31 +91,76 @@ export const GlobalStyles = createGlobalStyle(
        
     }
   }
-
-  ol.large-numbers {
-    counter-reset:li; /* Initiate a counter */
+ol{
+  counter-reset:li; /* Initiate a counter */
     margin-left:0; /* Remove the default left margin */
     padding-left:0; /* Remove the default left padding */
     line-height: 1.25;
     margin-bottom: 2rem;
+}
+  ol.large-numbers {
+    list-style: none;
   }
+  
   ol.large-numbers > p {
     font-size:  ${fontSizes[0]};
-    margin: 1rem 0rem 0rem 1rem;
+    margin: 1rem 0rem 0rem 2rem;
     padding: 0 2rem 0 1rem;
   }
-  ol.large-numbers > li {
+  ol > li {
     position:relative; /* Create a positioning context */
-    margin: 2rem 0 1rem 2rem;
+    margin: 2rem 0 0rem 2rem;
     padding: 0 2rem 0 1rem;
     font-size:  ${fontSizes[1]};
     font-weight: 900;
   }
 
+  li#bkg-list {
+    display: flex;
+    align-items: center;
+    background: ${colors.primary};
+    color: ${colors.nav};
+    gap: 1rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    width: fit-content;
+    margin: 2.5rem 0 0rem 2rem;
+    padding: 0 4rem 0 1rem;
+    box-shadow: 0.25rem 0.25rem 0.75rem rgb(0 0 0 / 0.1);
+  }
+  li#bkg-list::before {
+    counter-increment: list-item;
+    content: counter(list-item)'.';
+    font-weight: 700;
+    width: 2em;
+    height: 3em;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+ 
+  .italic {
+    font-style: italic;
+  }
+
+  .mt-small{
+    margin-top:1rem;
+  }
+  .mt-normal{
+    margin-top:2rem;
+  }
   .mt-extra{
     margin-top:4rem;
   }
+  #mw-none{
+    max-width:none;
+  }
   
+  .align-end{
+    align-self: center;
+  }
  
 
  

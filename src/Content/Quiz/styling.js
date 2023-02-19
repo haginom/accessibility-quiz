@@ -18,13 +18,13 @@ export const TwoEqualColumns = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 1rem;
+  gap: 1rem;
 `;
 
 export const TwoColumns = styled.div`
   display: flex;
   align-items: flex-start;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem;
   > * {
     flex: 0 0 50%;
     margin: 0 2rem 0 2rem;
@@ -44,16 +44,16 @@ export const ImgContainer = styled.div`
   }
 `;
 
-export const SocialMediaExample = ({ img, altText, link }) => {
+export const SocialMediaExample = ({ img, altText, link, idName }) => {
   return link != null ? (
-    <a href={link}>
+    <a target="_blank" rel="noopener noreferrer" href={link}>
       <ImgContainer>
-        <img src={img} alt={altText} />
+        <img id={idName} src={img} alt={altText} />
       </ImgContainer>
     </a>
   ) : (
     <ImgContainer>
-      <img src={img} alt={altText} />
+      <img id={idName} src={img} alt={altText} />
     </ImgContainer>
   );
 };
@@ -93,13 +93,13 @@ export const StyledLink = styled.a(
   ({ theme }) => `
   background: ${theme.colors.border};
   text-align: center;
-  flex: 0 0 30%;
+  flex: 0 0 40%;
   border-bottom: none;
   box-shadow: none;
   padding: 1rem;
   border-radius: 1rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
   p{
     border-bottom: .05em solid ${theme.colors.primary};
     box-shadow: inset 0 -0.05em 0 ${theme.colors.primary};
@@ -151,6 +151,7 @@ export const StyledContainer = styled.div(
 );
 
 export const StyledNB = styled.p`
+  margin-top: 2rem;
   font-style: italic;
 `;
 

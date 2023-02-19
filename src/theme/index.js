@@ -14,8 +14,8 @@ export const base = {
     decorative: "Anton"
   },
   fontSizes: [
-    "1.1rem",
-    "1.3rem",
+    "1.2rem",
+    "1.4rem",
     "2rem",
     "2.8rem",
     "3.4rem",

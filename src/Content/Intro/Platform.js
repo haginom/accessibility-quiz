@@ -8,7 +8,7 @@ import TikTok from "../../images/intro/tiktok.png";
 import YouTube from "../../images/intro/youtube.png";
 import { Layout, Text, Heading, ContainerFive } from "../../theme/extra";
 
-const Platform = ({ index, setIndex, setPlatform }) => {
+const Platform = ({ index, setIndex, setPlatform, setPost }) => {
   return (
     <>
       <Heading>What Platform are you creating content for?</Heading>
@@ -23,6 +23,7 @@ const Platform = ({ index, setIndex, setPlatform }) => {
           setPlatform={setPlatform}
           setIndex={setIndex}
           index={index}
+          setPost={setPost}
         >
           Twitter
         </SocialButton>
@@ -32,6 +33,7 @@ const Platform = ({ index, setIndex, setPlatform }) => {
           setPlatform={setPlatform}
           setIndex={setIndex}
           index={index}
+          setPost={setPost}
         >
           Facebook
         </SocialButton>
@@ -41,6 +43,7 @@ const Platform = ({ index, setIndex, setPlatform }) => {
           setPlatform={setPlatform}
           setIndex={setIndex}
           index={index}
+          setPost={setPost}
         >
           Instagram
         </SocialButton>
@@ -50,6 +53,7 @@ const Platform = ({ index, setIndex, setPlatform }) => {
           setPlatform={setPlatform}
           setIndex={setIndex}
           index={index}
+          setPost={setPost}
         >
           YouTube
         </SocialButton>
@@ -59,6 +63,7 @@ const Platform = ({ index, setIndex, setPlatform }) => {
           setPlatform={setPlatform}
           setIndex={setIndex}
           index={index}
+          setPost={setPost}
         >
           TikTok
         </SocialButton>

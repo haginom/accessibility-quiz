@@ -11,6 +11,8 @@ import {
   TwoColumns,
   StyledContainer,
   StyledNB,
+  TwoEqualColumns,
+  SocialMediaExample,
 } from "../styling";
 import { Columns } from "../../../theme/extra";
 
@@ -31,10 +33,14 @@ export const TwitterAltText = () => (
 
 export const TwitterHowTo = () => (
   <>
-    <TwoColumns>
+    <TwoEqualColumns>
       <div>
         <StyledContainer>
-          <a href="https://help.twitter.com/en/using-twitter/write-image-descriptions">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://help.twitter.com/en/using-twitter/write-image-descriptions"
+          >
             Read Twitter’s tips on how to write alt text
           </a>
         </StyledContainer>
@@ -57,7 +63,11 @@ export const TwitterHowTo = () => (
       </div>
       <div>
         <StyledContainer>
-          <a href="https://www.accessible-social.com/images-and-visuals/alt-text-writing-tips">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.accessible-social.com/images-and-visuals/alt-text-writing-tips"
+          >
             Read Accessible Social’s guide on how to write alt text
           </a>
         </StyledContainer>
@@ -78,26 +88,75 @@ export const TwitterHowTo = () => (
           />
         </ImgContainer>
       </div>
-    </TwoColumns>
+    </TwoEqualColumns>
   </>
 );
 
 export const FacebookAltText = () => (
   <Columns>
     <div>
-      <img src={FacebookGE} alt="alt" />
+      <SocialMediaExample
+        img={FacebookGE}
+        alt="an example of the the alt text in a img tag (within the code)"
+      />
     </div>
-    <div>
-      <p>
+    <div className="align-end">
+      <SocialMediaExample
+        img={FacebookGE2}
+        link="https://www.facebook.com/WeRateDogs/photos/a.1977294168998463/5507208606006984/"
+        alt="Facebook post from We Rate Dogs and large image of a black and tan dachshund puppy"
+      />
+      <p className="mt-normal">
         The alt text of the photo is: “a little black and tan dachshund puppy
         stands poolside. he’s wearing a tiny teal hawaiian shirt with a white
         and pink floral print. the sun looks warm on his face, and the water is
         a picturesque shade of blue. someone please get him a coconut-shaped
         water bowl.”
       </p>
-      <img src={FacebookGE2} alt="alt" />
     </div>
   </Columns>
+);
+
+export const FacebookHowTo = () => (
+  <>
+    <StyledContainer>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.accessible-social.com/images-and-visuals/alt-text-writing-tips"
+      >
+        Read Accessible Social's guide on how to write alt text
+      </a>
+    </StyledContainer>
+    <Columns>
+      <div>
+        <SocialMediaExample
+          img={FacebookGE}
+          link="https://www.facebook.com/WeRateDogs/photos/a.1977294168998463/5507208606006984/"
+          alt="Facebook post from We Rate Dogs and large image of a black and tan dachshund puppy"
+        />
+      </div>
+      <div>
+        <p className="mt-extra">
+          Here's an example of a post from WeRateDogs with alt text, while still
+          keeping it in the brand’s voice. The ChromeVox screenreader extension
+          will read exactly this.{" "}
+        </p>
+        <SocialMediaExample
+          img={FacebookGE2}
+          link="https://www.facebook.com/WeRateDogs/photos/a.1977294168998463/5507208606006984/"
+          alt="an example of the the alt text in a img tag (within the code)"
+        />
+        <p className="mt-normal">
+          The alt text of the photo is: “a little black and tan dachshund puppy
+          stands poolside. he’s wearing a tiny teal hawaiian shirt with a white
+          and pink floral print. the sun looks warm on his face, and the water
+          is a picturesque shade of blue. someone please get him a
+          coconut-shaped water bowl.”
+        </p>
+      </div>
+    </Columns>
+  </>
 );
 
 export const InstagramAltText = () => (

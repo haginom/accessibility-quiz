@@ -5,7 +5,10 @@ import styled from "styled-components";
 import Button from "../../components/Button";
 import { ButtonContainer } from "../../theme/extra";
 
-const Welcome = ({ index, setIndex }) => {
+const Welcome = ({ index, setIndex, setContent, setPlatform, setPost }) => {
+  setContent("");
+  setPlatform("");
+  setPost("");
   return (
     <>
       <Helmet>

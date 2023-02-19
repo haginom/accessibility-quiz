@@ -10,19 +10,27 @@ import {
   StyledText,
   StyledNB,
   TwoEqualColumns,
+  SocialMediaExample,
 } from "../styling";
 import Continue from "../../../components/Continue";
-import { TwitterGoodExample, TwitterBadExample } from "./embedLinks";
+import TwitterGE from "../../../images/twitter/video/vidLang-1.png";
+import TwitterBE from "../../../images/twitter/video/vidLang-2.png";
 import Quote1 from "../../../images/quote1.png";
 import Quote2 from "../../../images/quote2.png";
 
-export const VidLang = ({ index, setIndex, platform }) => {
+export const VidLang = ({ index, setIndex, platform, post, content }) => {
   const [answer, setAnswer] = React.useState("");
   return (
     <Section>
       <StyledTitle>Language</StyledTitle>
       {answer === "" ? (
-        <VidLangQ platform={platform} answer={answer} setAnswer={setAnswer} />
+        <VidLangQ
+          platform={platform}
+          answer={answer}
+          setAnswer={setAnswer}
+          post={post}
+          content={content}
+        />
       ) : answer === "yes" ? (
         <Yes
           platform={platform}
@@ -55,16 +63,16 @@ export const VidLang = ({ index, setIndex, platform }) => {
   );
 };
 
-const VidLangQ = ({ setAnswer }) => {
+const VidLangQ = ({ setAnswer, content, post }) => {
   return (
     <>
       <QuizHeaders>
-        Does the language in your video or accompanying your video mention
+        Does the copy in your {content} or accompanying your {content} mention
         disabled people or disability-related issues?
       </QuizHeaders>
       <p>
-        Does your video feature disabled people? Does your copy or narration
-        talk about disabled people? Does your video talk about
+        Does your {post} feature disabled people? Does your copy or narration
+        talk about disabled people? Does your {post} talk about
         disability-related issue or topics that may be relevant to the
         disability community? For example: is your social media content related
         to Disability Pride Month? Are you highlighting DEI initiatives that
@@ -72,11 +80,17 @@ const VidLangQ = ({ setAnswer }) => {
         that you use.
       </p>
       <TwoEqualColumns>
-        <TwitterGoodExample />
-        <TwitterBadExample />
+        <SocialMediaExample
+          img={TwitterGE}
+          alt="A tweet from Disney for Disability Pride Month"
+        />
+        <SocialMediaExample
+          img={TwitterBE}
+          alt="Spotlight Commercial by Mastercard on YouTube that shows a text saying 'This Commercial was designed with audio description for people who are blind or partially sighted'"
+        />
       </TwoEqualColumns>
       <p>
-        Knowing this, do you think your video contains language about disabled
+        Knowing this, do you think your {post} contains language about disabled
         people or disability? Are you confident that you are using the language
         and terms that the disabled community actually prefers?
       </p>
@@ -127,7 +141,11 @@ const Yes = ({ index, setIndex, setAnswer, platform }) => {
       </ol>
       <p className="mt-extra">
         If you’re looking for a more comprehensive list, check out{" "}
-        <a href="https://www.autistichoya.com/p/ableist-words-and-terms-to-avoid.html">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.autistichoya.com/p/ableist-words-and-terms-to-avoid.html"
+        >
           this list of ableist language that a disabled person compiled and
           organized.
         </a>
@@ -160,7 +178,11 @@ const No = ({ index, setIndex, setAnswer, platform }) => (
     </p>
     <StyledText>
       It’s a{" "}
-      <a href="https://www.autistichoya.com/p/ableist-words-and-terms-to-avoid.html">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.autistichoya.com/p/ableist-words-and-terms-to-avoid.html"
+      >
         compiled list of ableist language that one should keep in mind
       </a>{" "}
       that was put together by a disabled person, Lydia X. Z. Brown.
@@ -196,7 +218,7 @@ const Unsure = ({ index, setIndex, setAnswer, platform }) => (
     </p>
     <h2>General Tips on Language:</h2>
     <ol className="large-numbers">
-      <li>Use Identity First Language</li>
+      <li id="bkg-list">Use identity-first language.</li>
       <p>
         Most people in the disabled community prefer to use identity-first
         language (instead of person-first language). They find it to be more
@@ -229,14 +251,18 @@ const Unsure = ({ index, setIndex, setAnswer, platform }) => (
           <p>
             If you want to learn more about identity-first language, I recommend
             reading{" "}
-            <a href="https://www.autistichoya.com/2011/08/significance-of-semantics-person-first.html">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.autistichoya.com/2011/08/significance-of-semantics-person-first.html"
+            >
               the blog Autistic Hoya’s post on the topic.
             </a>
           </p>
         </StyledContainer>
         <img src={Quote1} alt="" />
       </TwoColumns>
-      <li>Avoid infantilizing language</li>
+      <li id="bkg-list">Avoid infantilizing language.</li>
       <TwoColumns>
         <img
           src={Quote2}
@@ -252,7 +278,11 @@ const Unsure = ({ index, setIndex, setAnswer, platform }) => (
           <StyledContainer>
             <p>
               If you want to learn more about this,{" "}
-              <a href="https://eu.usatoday.com/story/life/health-wellness/2021/06/11/disabled-not-special-needs-experts-explain-why-never-use-term/7591024002/">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://eu.usatoday.com/story/life/health-wellness/2021/06/11/disabled-not-special-needs-experts-explain-why-never-use-term/7591024002/"
+              >
                 this USA Today article does a good job of explaining why
                 “special needs” is offensive.
               </a>
@@ -260,7 +290,7 @@ const Unsure = ({ index, setIndex, setAnswer, platform }) => (
           </StyledContainer>
         </div>
       </TwoColumns>
-      <li>When you can, ask the community!</li>
+      <li id="bkg-list">When you can, ask the community!</li>
       <p>
         If you're featuring disabled people in your video, ask how they'd like
         to be identified as. Of course, their views may not be representative of
@@ -271,7 +301,11 @@ const Unsure = ({ index, setIndex, setAnswer, platform }) => (
       <StyledContainer>
         <p>
           If you’re looking for a more comprehensive list, check out{" "}
-          <a href="https://www.autistichoya.com/p/ableist-words-and-terms-to-avoid.html">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.autistichoya.com/p/ableist-words-and-terms-to-avoid.html"
+          >
             this list of ableist language that a disabled person compiled and
             organized.
           </a>
