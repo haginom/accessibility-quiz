@@ -193,6 +193,7 @@ function App() {
         <ThemeProvider theme={theme}>
           <Layout currentTheme={currentTheme} setCurrentTheme={setCurrentTheme}>
             <GlobalStyles />
+            {console.log(section, content)}
             {section === "intro"
               ? introComponents[index]
               : section === "quiz" && content === "video"
