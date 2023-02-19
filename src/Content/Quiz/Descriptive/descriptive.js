@@ -47,10 +47,7 @@ export const DescriptiveQ = ({ setAnswer }) => {
         can be in a comment or it can be in the caption.
       </p>
       <ImgContainer>
-        <img
-          src={DescriptiveGE}
-          alt="example of descriptive image on instagram"
-        />
+        <img src={DescriptiveGE} alt="" />
       </ImgContainer>
       <p>
         Now that you know more about image descriptions, does your post on
@@ -74,16 +71,10 @@ const Yes = ({ index, setIndex, setAnswer, platform, post }) => {
         in the comments (like the second post).
       </p>
       <ImgContainer>
-        <img
-          src={DescriptiveGE}
-          alt="example of descriptive image on instagram"
-        />
+        <img src={DescriptiveGE} alt="" />
       </ImgContainer>
       <ImgContainer>
-        <img
-          src={DescriptiveGE2}
-          alt="example of descriptive image on instagram"
-        />
+        <img src={DescriptiveGE2} alt="" />
       </ImgContainer>
       <p>
         If you want to learn more about written descriptive text or other
@@ -112,16 +103,10 @@ const No = ({ index, setIndex, setAnswer, platform }) => {
         writing image descriptions.{" "}
       </p>
       <ImgContainer>
-        <img
-          src={DescriptiveGE}
-          alt="example of descriptive image on instagram"
-        />
+        <img src={DescriptiveGE} alt="" />
       </ImgContainer>
       <ImgContainer>
-        <img
-          src={DescriptiveGE2}
-          alt="example of descriptive image on instagram"
-        />
+        <img src={DescriptiveGE2} alt="" />
       </ImgContainer>
       <p>
         The image description can be posted in the caption (like the first post)
